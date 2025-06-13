@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HELIOS — Five‑Week Generative AI Sprint</title>
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔆</text></svg>">
+
+<!-- ===  GLOBAL STYLES  =================================================== -->
+<style>
+/*  Reset & root palette  */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary-blue:#1e40af;--light-blue:#3b82f6;--accent-blue:#0066cc;
+  --gold:#f59e0b;--light-gold:#fbbf24;
+  --white:#fff;--light-grey:#f8fafc;--medium-grey:#e2e8f0;
+  --dark-text:#1e293b;--medium-text:#475569;--light-text:#64748b;
+  --success:#10b981;
+  --shadow:0 4px 6px -1px rgb(0 0 0 /.1);
+  --shadow-lg:0 10px 15px -3px rgb(0 0 0 /.1);
+  /* Our seven approved blue colors */
+  --blue-1:#000000;--blue-2:#000036;--blue-3:#02066F;
+  --blue-4:#170484;--blue-5:#050c91;--blue-6:#001489;--blue-7:#0000B3;
+  scroll-behavior:smooth
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;color:var(--dark-text);background:var(--white)}
+h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin-bottom:1.4rem}
+h2{font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:1.2rem}
+h3{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:600;margin-bottom:.8rem}
+.lead{font-size:clamp(1.125rem,2vw,1.25rem);color:var(--medium-text);
+      margin-bottom:1.8rem;line-height:1.7}
+.highlight{color:var(--primary-blue);font-weight:600}
+.gold-text{color:var(--gold);font-weight:600}
+
+section{padding:4rem 0}
+.section-light{background:var(--white)}
+.section-grey{background:var(--light-grey)}
+.section-blue{
+  background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);
+  color:var(--white)
+}
+.container{max-width:1200px;margin:auto;padding:0 1.5rem}
+
+/*  Navigation  */
+.header{position:sticky;top:0;z-index:100;background:var(--white);
+        border-bottom:1px solid var(--medium-grey);box-shadow:var(--shadow)}
+.nav{display:flex;justify-content:space-between;align-items:center;
+     padding:1rem 2rem;max-width:1200px;margin:auto}
+.logo{font-size:2rem;font-weight:700;color:var(--primary-blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--medium-text);font-weight:500;
+             transition:color .3s}
+.nav-links a:hover{color:var(--primary-blue)}
+
+/*  Buttons  */
+.btn{display:inline-block;padding:1rem 2rem;border-radius:.5rem;
+     font-weight:600;text-decoration:none;cursor:pointer;border:none;
+     transition:all .3s;margin:.4rem .4rem .4rem 0}
+.btn-primary{background:var(--primary-blue);color:var(--white)}
+.btn-primary:hover{background:var(--accent-blue);transform:translateY(-2px);
+                   box-shadow:var(--shadow-lg)}
+.btn-secondary{background:var(--white);color:var(--primary-blue);
+               border:2px solid var(--primary-blue)}
+.btn-secondary:hover{background:var(--primary-blue);color:var(--white)}
+.btn-success{background:var(--success);color:var(--white)}
+.btn-success:hover{background:#059669;transform:translateY(-2px)}
+
+/*  Hero  */
+.hero{background:linear-gradient(135deg,var(--white) 0%,var(--light-grey) 100%);
+      min-height:90vh;display:flex;align-items:center}
+.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+              align-items:center}
+.hero-badge{display:inline-block;padding:.5rem 1rem;background:var(--light-blue);
+            color:var(--white);border-radius:2rem;font-size:.8rem;font-weight:600;
+            margin-bottom:1.5rem;letter-spacing:.5px}
+.hero-image{background:var(--white);padding:2rem;border-radius:1rem;
+            box-shadow:var(--shadow-lg);text-align:center}
+
+/*  Grid helpers  */
+.grid{display:grid;gap:2rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+/*  Cards  */
+.card{background:var(--white);border-radius:1rem;padding:2rem;box-shadow:var(--shadow);
+      border:1px solid var(--medium-grey);transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card-icon{font-size:2rem;margin-bottom:1rem;color:var(--primary-blue)}
+
+/*  Pain-points  */
+.pain-point{display:flex;gap:1rem;align-items:flex-start;margin-bottom:2rem;
+            padding:1.5rem;background:var(--white);border-radius:.75rem;
+            border-left:4px solid var(--primary-blue)}
+.pain-icon{font-size:1.5rem;flex-shrink:0}
+
+/*  Timeline  */
+.timeline-item{display:flex;gap:2rem;margin-bottom:3rem;align-items:flex-start}
+.timeline-week{background:var(--primary-blue);color:var(--white);width:4rem;
+               height:4rem;border-radius:50%;display:flex;justify-content:center;
+               align-items:center;font-weight:700;font-size:1.25rem;flex-shrink:0}
+.timeline-content{flex:1;background:var(--white);padding:1.5rem;border-radius:.75rem;
+                  box-shadow:var(--shadow)}
+
+/*  Pricing  */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+              gap:2rem;margin-top:3rem}
+.pricing-card{background:var(--white);border:2px solid var(--medium-grey);
+              border-radius:1rem;padding:2rem;text-align:center;position:relative;
+              transition:.3s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pricing-card.featured{border-color:var(--primary-blue);transform:scale(1.05)}
+.pricing-card.featured::before{content:'FOUNDING PRICE';position:absolute;
+  top:-10px;left:50%;transform:translateX(-50%);background:var(--primary-blue);
+  color:var(--white);padding:.4rem .8rem;border-radius:1rem;font-size:.7rem;font-weight:700}
+.price{font-size:3rem;font-weight:700;color:var(--primary-blue);margin:1.4rem 0}
+.price-features{list-style:none;text-align:left;margin:1.5rem 0}
+.price-features li{padding:.4rem 0;color:var(--medium-text)}
+.price-features li.included::before{content:'✓';color:var(--success);margin-right:.5rem;font-weight:bold}
+
+/*  Stats  */
+.stats{background:var(--primary-blue);color:var(--white)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:2rem;text-align:center}
+.stat-item h3{font-size:2.5rem;margin-bottom:.4rem}
+.section-blue .stats-grid{color:var(--white)}
+.section-blue .stat-item h3{color:var(--white)}
+.section-blue .stat-item p{color:rgba(255,255,255,.9)}
+
+/*  Testimonials  */
+.testimonial{background:var(--white);padding:2rem;border-radius:1rem;
+             box-shadow:var(--shadow);border-left:4px solid var(--gold)}
+.testimonial-quote{font-style:italic;font-size:1.1rem;margin-bottom:1rem;
+                   color:var(--medium-text)}
+.testimonial-author{font-weight:600;color:var(--primary-blue)}
+
+/*  CTA /-footer  */
+.cta{background:linear-gradient(135deg,var(--primary-blue),var(--light-blue));
+     color:var(--white);text-align:center}
+.footer{background:var(--dark-text);color:var(--white);padding:3rem 0 1rem}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+                gap:2rem;margin-bottom:2rem}
+.footer-section h4{margin-bottom:1rem}
+.footer-section a{color:rgba(255,255,255,.7);text-decoration:none;line-height:2}
+.footer-section a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgb(255 255 255 /.1);padding-top:2rem;
+               text-align:center;color:rgba(255,255,255,.6)}
+
+/*  Scroll reveal  */
+.scroll-animate{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
+.scroll-animate.visible{opacity:1;transform:translateY(0)}
+
+/*  Mobile  */
+@media(max-width:768px){
+  .nav{padding:1rem}
+  .nav-links{display:none}
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  section{padding:3rem 0}
+  .container{padding:0 1rem}
+  .timeline-item{flex-direction:column;text-align:center;gap:1rem}
+  .pricing-card.featured{transform:none}
+  .btn{display:block;margin:0 0 1rem 0}
+  .section-blue .card{margin-bottom:1.5rem}
+}
+</style>
+</head>
+
+<body>
+<!-- ============  NAV  ==================================================== -->
+<header class="header">
+  <nav class="nav">
+    <div class="logo">🔆 HELIOS</div>
+    <ul class="nav-links">
+      <li><a href="#about">Crisis</a></li>
+      <li><a href="#program">Sprint</a></li>
+      <li><a href="#value">10× Value</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Social Proof</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============  HERO  =================================================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">Founding Cohort • August 2025</div>
+        <h1>Go from <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable </span>in five weeks.</h1>
+        <p class="lead">
+          Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
+        </p>
+        <a href="#apply" class="btn btn-primary">See if you're a fit</a>
+        <a href="#value" class="btn btn-secondary">See the 10× ROI</a>
+      </div>
+      <div class="hero-image">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" rx="10" fill="#f8fafc"/>
+          <circle cx="200" cy="150" r="80" fill="#3b82f6" opacity=".15"/>
+          <circle cx="200" cy="150" r="60" fill="#3b82f6" opacity=".28"/>
+          <circle cx="200" cy="150" r="40" fill="#3b82f6" opacity=".4"/>
+          <circle cx="200" cy="150" r="20" fill="#3b82f6"/>
+          <text x="200" y="158" fill="#fff" font-size="16" font-weight="700"
+                text-anchor="middle">AI</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  PAIN POINTS  =========================================== -->
+<section class="section section-grey" id="about">
+  <div class="container scroll-animate">
+    <h2 class="text-center">The Quiet <span class="highlight">Crisis</span> You Feel but Rarely Name</h2>
+    <div class="grid grid-2">
+      <div>
+        <div class="pain-point"><span class="pain-icon">📉</span><div>
+          <h3>Slide‑Deck Promises, Zero Guidance</h3>
+          <p>Corporate trumpets “AI transformation” yet hands you no roadmap.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">😐</span><div>
+          <h3>One ChatGPT Try, All Fluff</h3>
+          <p>You asked, it rambled, you closed the tab—confidence lost.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🕒</span><div>
+          <h3>Deadlines Up, Headcount Down</h3>
+          <p>Hiring freezes bite while leaders still expect a 30 % jump.</p></div></div>
+      </div>
+      <div>
+        <div class="pain-point"><span class="pain-icon">❓</span><div>
+          <h3>82 % Un‑Trained, 95 % Think They Are</h3>
+          <p>The disconnect breeds quiet anxiety and FOMO.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🚢</span><div>
+          <h3>Boat Already Leaving Harbour</h3>
+          <p>You sense you’re missing it—and hate admitting it aloud.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🤯</span><div>
+          <h3>Noise, Hype, Everywhere</h3>
+          <p>New tools daily. Zero practical pathway.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  SOLUTION  ============================================== -->
+<section class="section section-light">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Meet <span class="gold-text">HELIOS</span>—The 5‑Week Sprint That Turns Fog into Fluency</h2>
+    <p class="lead text-center">
+      Not another binge‑watch course. A live, guided, high‑touch sprint where you design, prototype, and launch at least <strong>five</strong> functional AI artefacts, all mapped to our <span class="gold-text">ECHO5</span> teaching philosophy—<em>Enlighten, Encourage, Envision, Empower, Equip</em>.
+    </p>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-icon">🏗️</div>
+        <h3>Build, Don’t Lecture</h3>
+        <p>Camera stays on your keyboard until something real ships.</p></div>
+      <div class="card"><div class="card-icon">🎯</div>
+        <h3>Cohort & Coaching</h3>
+        <p>Private threads, engineer‑led guidance, zero lurkers.</p></div>
+      <div class="card"><div class="card-icon">⚡</div>
+        <h3>Momentum by Design</h3>
+        <p>Gamified progress, mid‑sprint hackathon, celebratory demo day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  TIMELINE  ============================================== -->
+<section class="section section-grey" id="program">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Your <span class="highlight">Five‑Week Build Plan</span></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">1</div><div class="timeline-content">
+          <h3>First Tool in 90 Minutes</h3>
+          <p>Ship a fully functional GenAI web‑app before Session 1 ends.</p></div></div>
+      <div class="timeline-item">
+        <div class="timeline-week">2</div><div class="timeline-content">
+          <h3>Workflow Automation</h3>
+          <p>Custom pipeline returns 3–5 hours each week—instantly valuable.</p></div></div>
+      <div class="timeline-item">
+        <div class="timeline-week">3</div><div class="timeline-content">
+          <h3>Your Personal AI Agent</h3>
+          <p>Train a model to think like you—delegate the grunt work.</p></div></div>
+      <div class="timeline-item">
+        <div class="timeline-week">4</div><div class="timeline-content">
+          <h3>Real Business Impact</h3>
+          <p>Apply AI to a pressing commercial case with measurable ROI.</p></div></div>
+      <div class="timeline-item">
+        <div class="timeline-week">5</div><div class="timeline-content">
+          <h3>Flagship Artefact & Demo Day</h3>
+          <p>Present, certify, graduate, and earn your Founding‑Member badge.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  10× VALUE  ============================================ -->
+<section class="section section-light" id="value">
+  <div class="container scroll-animate">
+    <h2 class="text-center"><span class="gold-text">Tangible 10× Value</span>—or Your Money Back</h2>
+    <p class="lead text-center">
+      Most grads reclaim <strong>20+ hours</strong> a month and save <strong>€5–10 k</strong> in external spend within sixty days. HELIOS costs €1 250 today—less than half the next‑round price.
+    </p>
+    <div class="grid grid-3">
+      <div class="card"><h3>Live Sprint Sessions</h3>
+        <p>12.5 h interactive, zero‑fluff builds led personally by Victor.</p></div>
+      <div class="card"><h3>1 : 1 Strategy Call</h3>
+        <p>20‑minute laser coaching on your use‑case.</p></div>
+      <div class="card"><h3>Lifetime Resource Vault</h3>
+        <p>Prompt libraries, compliance kits, updated for a year.</p></div>
+      <div class="card"><h3>Founding‑Member Status</h3>
+        <p>Influence future modules, receive all updates free.</p></div>
+      <div class="card"><h3>Alumni & Referral Engine</h3>
+        <p>Private network plus 10 % commission on seats you fill.</p></div>
+      <div class="card"><h3>One‑for‑Ten Scholarship</h3>
+        <p>Your seat funds talent who’d otherwise miss out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  AWARDS  =============================================== -->
+<section class="section section-grey">
+  <div class="container scroll-animate">
+    <h2 class="text-center">🏅 Gamification, Recognition, Momentum</h2>
+    <div class="grid grid-2">
+      <div class="card"><h3>Tiered Medals</h3>
+        <p>Gold, Platinum, up to single Diamond for three standout builds.</p></div>
+      <div class="card"><h3>Spotlight Awards</h3>
+        <p>Rookie of the Year, Best Prompt Engineer, Most Unexpected Build.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  STATS  ================================================ -->
+<section class="section stats">
+  <div class="container scroll-animate">
+    <div class="stats-grid">
+      <div class="stat-item"><h3>€10k+</h3><p>Capacity unlocked inside 60 days</p></div>
+      <div class="stat-item"><h3>20 hrs+</h3><p>Monthly time reclaimed</p></div>
+      <div class="stat-item"><h3>5 Weeks</h3><p>Fog → Fluency</p></div>
+      <div class="stat-item"><h3>25</h3><p>Capped seats • Alpha cohort</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  TESTIMONIALS  ======================================== -->
+<section class="section section-light" id="testimonials">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Social Proof</h2>
+    <div class="grid grid-3">
+      <div class="testimonial">
+        <div class="testimonial-quote">“Our team went from AI‑curious to AI‑powered in five weeks. The ROI was immediate and compounds monthly.”</div>
+        <div class="testimonial-author">— BT Sourced Leadership Team</div></div>
+      <div class="testimonial">
+        <div class="testimonial-quote">“I’m not a techie. I built a working AI assistant in Week 1—and enjoyed it.”</div>
+        <div class="testimonial-author">— Maria S., Educator & Founder</div></div>
+      <div class="testimonial">
+        <div class="testimonial-quote">“Victor demystified AI for our senior leaders. We now test ideas in days, not months.”</div>
+        <div class="testimonial-author">— Mark Greville, VP Engineering</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  PRICING  ============================================= -->
+<section class="section section-grey" id="pricing">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Investment (Founding Cohort Only)</h2>
+    <div class="pricing-grid" style="grid-template-columns:repeat(3, 1fr)">
+      <div class="pricing-card">
+        <h3>Sirius</h3><p>Core experience, self-directed.</p>
+        <div class="price">€950</div>
+        <ul class="price-features">
+          <li class="included">5 × Live 2.5 h sessions</li>
+          <li class="included">Mid‑Sprint Hackathon</li>
+          <li>1 : 1 Strategy Call</li>
+          <li class="included">Resource Vault (6 months)</li>
+          <li class="included">Alumni Circle</li>
+          <li>Referral Earnings</li>
+          <li class="included">Scholarship Impact</li>
+        </ul>
+        <a href="#apply" class="btn btn-secondary">Apply Now</a>
+      </div>
+      
+      <div class="pricing-card featured" style="max-width:none;">
+        <h3>Arcturus</h3><p>No upsells, no hidden costs.</p>
+        <div class="price">€1,250</div>
+        <ul class="price-features">
+          <li class="included">5 × Live 2.5 h sessions</li>
+          <li class="included">Mid‑Sprint Hackathon</li>
+          <li class="included">1 : 1 Strategy Call</li>
+          <li class="included">Lifetime Vault Access</li>
+          <li class="included">Alumni Circle & Medals</li>
+          <li class="included">Referral Earnings (10 %)</li>
+          <li class="included">Scholarship Impact</li>
+        </ul>
+        <a href="#apply" class="btn btn-primary">Apply & Secure Seat</a>
+      </div>
+      
+      <div class="pricing-card">
+        <h3>Betelgeuse</h3><p>Enhanced support & networking.</p>
+        <div class="price">€2,500</div>
+        <ul class="price-features">
+          <li class="included">5 × Live 2.5 h sessions</li>
+          <li class="included">Mid‑Sprint Hackathon</li>
+          <li class="included">3 × 1 : 1 Strategy Calls</li>
+          <li class="included">Lifetime Vault Access</li>
+          <li class="included">VIP Alumni Circle & Medals</li>
+          <li class="included">Referral Earnings (15 %)</li>
+          <li class="included">Priority Project Review</li>
+        </ul>
+        <a href="#apply" class="btn btn-secondary">Apply for VIP</a>
+      </div>
+    </div>
+    <p class="text-center" style="margin-top:2rem">
+      <strong>🛡️ 30‑Day Guarantee:</strong> Ship one working AI tool or your money back.
+    </p>
+  </div>
+</section>
+
+<!-- ============  FINAL CTA  =========================================== -->
+<section class="section cta" id="apply">
+  <div class="container scroll-animate">
+    <div class="cta-content">
+      <h2>The AI Revolution Isn’t Coming—It’s Here.</h2>
+      <p class="lead">Don’t watch the wave; surf it.</p>
+      <div class="card" style="max-width:600px;margin:3rem auto">
+        <h3>Founding Cohort Details</h3>
+        <p><strong>Dates:</strong> 6 Aug – 3 Sep 2025 (Wednesdays)</p>
+        <p><strong>Time:</strong> 18 : 30–21 : 00 IST/BST</p>
+        <p><strong>Seats Remaining:</strong> 3 / 25</p>
+        <p><strong>Application Deadline:</strong> 15 July 2025</p>
+        <a href="#" class="btn btn-success" onclick="startApplication(event)">
+          Submit Your 60‑Second Application
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  FOOTER  ============================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>HELIOS</h4>
+        <p>The Flagship Generative AI Sprint for Business Leaders</p>
+      </div>
+      <div class="footer-section">
+        <h4>Explore</h4>
+        <a href="#about">Crisis</a><br><a href="#program">Sprint</a><br>
+        <a href="#value">10× Value</a><br><a href="#pricing">Pricing</a>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <a href="#">FAQ</a><br><a href="#">Contact</a><br>
+        <a href="#">Privacy Policy</a><br><a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 HELIOS. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============  JS  ==================================================== -->
+<script>
+/* smooth-scroll inside page */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const tgt=document.querySelector(a.getAttribute('href'));
+    if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth'})}
+  })})
+/* reveal on scroll */
+function reveal(){document.querySelectorAll('.scroll-animate').forEach(el=>{
+  const top=el.getBoundingClientRect().top;if(top<innerHeight-150)el.classList.add('visible')
+})}
+window.addEventListener('scroll',reveal);reveal()
+/* dummy application */
+function startApplication(e){e.preventDefault();
+  alert('👉  This is where the 60‑second application form would launch.')}
+</script>
+</body>
+</html>
