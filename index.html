@@ -58,14 +58,34 @@ section{padding:4rem 0}
 .btn{display:inline-block;padding:1rem 2rem;border-radius:.5rem;
      font-weight:600;text-decoration:none;cursor:pointer;border:none;
      transition:all .3s;margin:.4rem .4rem .4rem 0}
-.btn-primary{background:var(--primary-blue);color:var(--white)}
-.btn-primary:hover{background:var(--accent-blue);transform:translateY(-2px);
-                   box-shadow:var(--shadow-lg)}
-.btn-secondary{background:var(--white);color:var(--primary-blue);
-               border:2px solid var(--primary-blue)}
-.btn-secondary:hover{background:var(--primary-blue);color:var(--white)}
-.btn-success{background:var(--success);color:var(--white)}
-.btn-success:hover{background:#059669;transform:translateY(-2px)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);
+  color:var(--white)
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg,var(--blue-3) 0%,var(--blue-5) 100%);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg)
+}
+.btn-secondary{
+  background:var(--white);
+  color:var(--blue-5);
+  border:2px solid var(--blue-5)
+}
+.btn-secondary:hover{
+  background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);
+  color:var(--white);
+  border-color:transparent
+}
+.btn-success{
+  background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);
+  color:var(--white)
+}
+.btn-success:hover{
+  background:linear-gradient(135deg,var(--blue-3) 0%,var(--blue-5) 100%);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg)
+}
 
 /*  Hero  */
 .hero{
@@ -86,6 +106,41 @@ section{padding:4rem 0}
 .hero-badge{display:inline-block;padding:.5rem 1rem;background:var(--light-blue);
             color:var(--white);border-radius:2rem;font-size:.8rem;font-weight:600;
             margin-bottom:1.5rem;letter-spacing:.5px}
+.hero-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);
+            margin-bottom:2rem;text-shadow:0 4px 8px rgba(0,0,0,0.3);
+            /* Removing the gradient */
+            background-clip:initial;-webkit-background-clip:initial;-webkit-text-fill-color:initial;}
+
+/* ============  REAL WORLD IMPACT  ===================================== */
+<section class="section section-light">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Right now, at this very moment, someone like you is using AI to do in minutes what used to take them hours or days.</h2>
+    <div class="grid grid-2" style="margin-top:2rem">
+      <div>
+        <div class="pain-point"><span class="pain-icon">🚀</span><div>
+          <h3>Marketing Manager • Dublin</h3>
+          <p>Just created social media content that would have cost €5,000 from an agency. Time invested: 90 minutes.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">👩‍🏫</span><div>
+          <h3>Teacher • Cork</h3>
+          <p>Built a quiz generator for her 6th class that adapts to each student's pace. Previous coding experience: zero.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">📊</span><div>
+          <h3>Consultant • Galway</h3>
+          <p>Automated her weekly report writing, saving 4 hours every Friday afternoon.</p></div></div>
+      </div>
+      <div>
+        <div class="pain-point"><span class="pain-icon">🍽️</span><div>
+          <h3>Busy Parent • Kilkenny</h3>
+          <p>Created an AI meal planner that uses whatever's in the fridge, ending the daily "what's for dinner?" stress.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🏆</span><div>
+          <h3>Club Hurling Coach • Limerick</h3>
+          <p>Built a simple tool to simulate random game scenarios to get players mentally read; it took less than 30 minutes to set up.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🧠</span><div>
+          <h3>Parents • Westmeath</h3>
+          <p>Created flashcards that adapt to their child's learning abilities, creating a fun, sustainable daily learning routine.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 /*  Grid helpers  */
 .grid{display:grid;gap:2rem}
@@ -129,7 +184,7 @@ section{padding:4rem 0}
 .price-features li.included::before{content:'✓';color:var(--success);margin-right:.5rem;font-weight:bold}
 
 /*  Stats  */
-.stats{background:var(--primary-blue);color:var(--white)}
+.stats{background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);color:var(--white)}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
             gap:2rem;text-align:center}
 .stat-item h3{font-size:2.5rem;margin-bottom:.4rem}
@@ -145,7 +200,7 @@ section{padding:4rem 0}
 .testimonial-author{font-weight:600;color:var(--primary-blue)}
 
 /*  CTA /-footer  */
-.cta{background:linear-gradient(135deg,var(--primary-blue),var(--light-blue));
+.cta{background:linear-gradient(135deg,var(--blue-5) 0%,var(--blue-3) 100%);
      color:var(--white);text-align:center}
 .footer{background:var(--dark-text);color:var(--white);padding:3rem 0 1rem}
 .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -197,11 +252,40 @@ section{padding:4rem 0}
       <div class="hero-text">
         <div class="hero-badge">Founding Cohort • August 2025</div>
         <h1>Go from <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable </span>in five weeks.</h1>
-        <p class="lead">
-          Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
-        </p>
-        <a href="#apply" class="btn btn-primary">See if you're a fit</a>
+        <div class="hero-title">HELIOS🔆. The flagship generative AI course for decision-makers and non-technical professionals.</div>
+        <a href="#apply" class="btn btn-primary">Self-asses in 30 seconds</a>
         
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============  REAL WORLD IMPACT  ===================================== -->
+<section class="section section-light">
+  <div class="container scroll-animate">
+    <h2 class="text-center">Right now, at this very moment, someone like you is using AI to do in minutes what used to take them hours or days.</h2>
+    <div class="grid grid-2" style="margin-top:2rem">
+      <div>
+        <div class="pain-point"><span class="pain-icon">🚀</span><div>
+          <h3>Marketing Manager • Dublin</h3>
+          <p>Just created social media content that would have cost €5,000 from an agency. Time invested: 90 minutes.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">👩‍🏫</span><div>
+          <h3>Teacher • Cork</h3>
+          <p>Built a quiz generator for her 6th class that adapts to each student's pace. Previous coding experience: zero.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">📊</span><div>
+          <h3>Consultant • Galway</h3>
+          <p>Automated her weekly report writing, saving 4 hours every Friday afternoon.</p></div></div>
+      </div>
+      <div>
+        <div class="pain-point"><span class="pain-icon">🍽️</span><div>
+          <h3>Busy Parent • Kilkenny</h3>
+          <p>Created an AI meal planner that uses whatever's in the fridge, ending the daily "what's for dinner?" stress.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🏆</span><div>
+          <h3>Club Hurling Coach • Limerick</h3>
+          <p>Built a simple tool to simulate random game scenarios to get players mentally read; it took less than 30 minutes to set up.</p></div></div>
+        <div class="pain-point"><span class="pain-icon">🧠</span><div>
+          <h3>Parents • Westmeath</h3>
+          <p>Created flashcards that adapt to their child's learning abilities, creating a fun, sustainable daily learning routine.</p></div></div>
       </div>
     </div>
   </div>
@@ -211,6 +295,9 @@ section{padding:4rem 0}
 <section class="section section-grey" id="about">
   <div class="container scroll-animate">
     <h2 class="text-center">The Quiet <span class="highlight">Crisis</span> You Feel but Rarely Name</h2>
+    <p class="lead text-center" style="margin-bottom:3rem;">
+      Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
+    </p>
     <div class="grid grid-2">
       <div>
         <div class="pain-point"><span class="pain-icon">📉</span><div>
