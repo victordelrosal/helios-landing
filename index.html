@@ -78,16 +78,13 @@ section{padding:4rem 0}
   align-items:center;
   color:var(--white)
 }
-.hero h1{color:var(--white)}
+.hero h1{color:var(--white);max-width:1000px}
 .hero .highlight{color:var(--light-blue)}
-.hero .lead{color:rgba(255,255,255,0.9)}
-.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;
-              align-items:center}
+.hero .lead{color:rgba(255,255,255,0.9);max-width:900px}
+.hero-content{display:flex;flex-direction:column;align-items:flex-start}
 .hero-badge{display:inline-block;padding:.5rem 1rem;background:var(--light-blue);
             color:var(--white);border-radius:2rem;font-size:.8rem;font-weight:600;
             margin-bottom:1.5rem;letter-spacing:.5px}
-.hero-image{background:rgba(255,255,255,0.15);padding:2rem;border-radius:1rem;
-            box-shadow:var(--shadow-lg);text-align:center;backdrop-filter:blur(10px)}
 
 /*  Grid helpers  */
 .grid{display:grid;gap:2rem}
@@ -204,10 +201,6 @@ section{padding:4rem 0}
         </p>
         <a href="#apply" class="btn btn-primary">See if you're a fit</a>
         <a href="#value" class="btn btn-secondary">See the 10× ROI</a>
-      </div>
-      <div class="hero-image">
-        <h2 style="color:var(--white);font-size:2.5rem;margin:0;">HELIOS</h2>
-        <p style="color:var(--white);opacity:0.9;margin-top:0.5rem;">Illuminating Your AI Journey</p>
       </div>
     </div>
   </div>
