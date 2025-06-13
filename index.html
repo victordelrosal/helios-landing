@@ -867,7 +867,7 @@ section{
       <li><a href="#about">Crisis</a></li>
       <li><a href="#program">Masterclass</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#pricing">Investment</a></li>
+      <li><a href="#self-assess">Assessment</a></li>
       <li><a href="#apply" class="btn btn-primary" style="padding:0.7rem 2rem; color:var(--white)">Apply Now</a></li>
     </ul>
   </nav>
@@ -1260,7 +1260,7 @@ section{
         <div style="line-height:2">
           <a href="#about" style="color:rgba(255,255,255,0.7);text-decoration:none;display:block">About</a>
           <a href="#program" style="color:rgba(255,255,255,0.7);text-decoration:none;display:block">Program</a>
-          <a href="#pricing" style="color:rgba(255,255,255,0.7);text-decoration:none;display:block">Pricing</a>
+          <a href="#self-assess" style="color:rgba(255,255,255,0.7);text-decoration:none;display:block">Assessment</a>
           <a href="#apply" style="color:rgba(255,255,255,0.7);text-decoration:none;display:block">Apply</a>
         </div>
       </div>
@@ -1349,7 +1349,28 @@ function startApplication(e) {
   alert('🚀 Application form would open here. This is a demo.');
 }
 
-// Counter animation
+// Function to smoothly scroll to pricing section
+function scrollToPricing(e) {
+    e.preventDefault();
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection.style.display === 'block') {
+      pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  
+  // Function to show the pricing section and scroll to it
+  function showAndScrollToPricing(e) {
+    e.preventDefault();
+    const pricingSection = document.getElementById('pricing');
+    pricingSection.style.display = 'block';
+    
+    // Give a small delay to ensure display happens before scrolling
+    setTimeout(() => {
+      pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+  
+  // Counter animation
 function animateValue(element, start, end, duration) {
   const range = end - start;
   const startTime = performance.now();
@@ -1402,6 +1423,10 @@ document.querySelectorAll('.stat-item h3').forEach(stat => {
 
 // Self Assessment Logic
 document.addEventListener('DOMContentLoaded', function() {
+  // Hide the pricing section initially
+  const pricingSection = document.getElementById('pricing');
+  pricingSection.style.display = 'none';
+  
   const assessmentForm = document.getElementById('assessment-form');
   const emailCollection = document.getElementById('email-collection');
   const emailForm = document.getElementById('email-form');
@@ -1476,9 +1501,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultTitle = document.getElementById('result-title');
     const resultMessage = document.getElementById('result-message');
     const resultCTA = document.getElementById('result-cta');
+    const pricingSection = document.getElementById('pricing');
     
     if (score >= 7) {
-      // Perfect fit
+      // Perfect fit - show pricing section
+      pricingSection.style.display = 'block';
+      
       resultIcon.innerHTML = '🚀';
       resultTitle.innerHTML = '<span class="gradient-text">HELIOS is Perfect for You!</span>';
       resultMessage.innerHTML = `You're ready to accelerate your AI journey. Your assessment shows you have the right mix of curiosity, readiness, and commitment to transform your capabilities in just 5 weeks.`;
@@ -1488,7 +1516,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#program" class="btn btn-secondary">Review Program</a>
       `;
     } else if (score >= 5) {
-      // Good fit with guidance
+      // Good fit with guidance - show pricing section
+      pricingSection.style.display = 'block';
+      
       resultIcon.innerHTML = '✨';
       resultTitle.innerHTML = '<span style="color: var(--gold-premium);">HELIOS Can Transform You!</span>';
       resultMessage.innerHTML = `You're at the perfect starting point for HELIOS. With our structured approach and expert guidance, you'll quickly bridge the gap between AI-curious and AI-capable.`;
@@ -1498,7 +1528,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#program" class="btn btn-secondary">Learn More</a>
       `;
     } else {
-      // Needs preparation
+      // Needs preparation - don't show pricing section
       resultIcon.innerHTML = '🌱';
       resultTitle.innerHTML = 'You\'re on the Right Path!';
       resultMessage.innerHTML = `While HELIOS might be a bit advanced for your current level, we admire your interest in AI transformation. Consider exploring some foundational resources first, then join us when you're ready for intensive hands-on building.`;
