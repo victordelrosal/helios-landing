@@ -1,3 +1,0 @@
-instead of displaying img/play.jpg and img/testDrive.png as rounded rectangles make sure they are stretched to fill out the full width. The top 20% should have a transparency smoothed out white gradient effect, starting with 90% transparency at the top and reaching 70% at 20% of the top height of the image. the remaining 80% of the image should have 0% transparency. apply this effect to both images. 
-
-NB please do not touch anything else.... leave all else intact
