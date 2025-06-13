@@ -1,0 +1,15 @@
+For the section with this text: '€10k+ Capacity unlocked inside 60 days 20 hrs+
+Monthly time reclaimed 5 Weeks Fog → Fluency 25 Capped seats • Alpha cohort'
+
+change the blue to this precise gradient mix:
+
+    /* Our seven approved blue colors */
+    --blue-1: #000000;  /* Darkest-black tiny*/
+    --blue-2: #000036; /* Very Dark Blue */
+    --blue-3: #02066F; /* Dark Blue */
+    --blue-4: #170484; /* Dark Blue with Deep Hue */
+    --blue-5: #050c91; /* 050c91 */
+    --blue-6: #001489; /* Pantone Reflex Blue C Color */
+    --blue-7: #0000B3;  /* Brightest: Bright Blue */
+
+NB do not touch anything else.... leave all else intact

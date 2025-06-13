@@ -340,8 +340,12 @@ h3{
 }
 
 .hero .highlight{
-  color: var(--gold-premium);
-  -webkit-text-fill-color: var(--gold-premium);
+  background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 15px var(--gold-glow);
+  font-weight: 900;
 }
 
 .hero-subtitle{
@@ -879,7 +883,7 @@ section{
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge">Founding Cohort • August 2025 • Limited Seats Available</div>
-      <h1 class="serif">From <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable</span> in Five Weeks</h1>
+      <h1 class="serif">Go From <span class="highlight">AI Curious</span> to <br> <span class="highlight">AI Capable</span> in Five Weeks</h1>
       <p class="hero-subtitle">
         Master generative AI through intensive hands-on building. <br> Join the <strong>genAI flagship masterclass for decision-makers</strong> ready to lead with confidence.
       </p>
@@ -922,17 +926,79 @@ section{
   </div>
 </section>
 
-<!-- Test Drive Section -->
+<!-- Real World Examples Section -->
 <section class="section section-dark">
   <div class="section-pattern"></div>
   <div class="container">
     <div class="text-center mb-4 fade-in">
-      <h2 class="gradient-text">Mastering GenAI by Reading About It is like learning to drive by watching videos.</h2>
+      <h2 class="gradient-text">Real World Examples</h2>
+      <p class="lead">
+        Right now, at this very moment, someone like you is using AI to do in minutes what used to take them hours or days.
+      </p>
+    </div>
+    
+    <div class="examples-container" style="max-width: 1000px; margin: 0 auto; padding: 1rem;">
+      <div class="example-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Marketing Manager</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">A marketing manager in Dublin just created social media content that would have cost €5,000 from an agency. Time invested: 90 minutes.</p>
+        </div>
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Teacher</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">A teacher in Cork built a quiz generator for her 6th class that adapts to each student's pace. Previous coding experience: zero.</p>
+        </div>
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Consultant</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">A consultant in Galway automated her weekly report writing, saving 4 hours every Friday afternoon.</p>
+        </div>
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Busy Parent</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">A busy parent in Kilkenny created an AI meal planner that uses whatever's in the fridge, ending the daily "what's for dinner?" stress.</p>
+        </div>
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Coach</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">A club hurling coach in Limerick built a simple tool to simulate random game scenarios to get players mentally ready; it took less than 30 minutes to set up.</p>
+        </div>
+        
+        <div class="example-card fade-in" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-medium); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--gold-premium);">The Educators</h3>
+          <p style="color: rgba(255,255,255,0.9); line-height: 1.7;">Parents in Westmeath created flashcards that adapt to their child's learning abilities, creating a fun, sustainable daily learning routine.</p>
+        </div>
+      </div>
+      
+      <div class="example-highlight fade-in" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, rgba(212,175,55,0.15) 100%); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; border: 1px solid rgba(212,175,55,0.2); box-shadow: var(--shadow-medium);">
+        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%); opacity: 0.3;"></div>
+        <div style="position: relative;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-premium);">And one of my favourites:</h3>
+          <p style="color: rgba(255,255,255,0.95); line-height: 1.8; font-size: 1.1rem;">Masters students who had never coded a line of programming who are now able to build interactive artifacts adding a new dimension to their assignments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Test Drive Section -->
+<section class="section section-light">
+  <div class="section-pattern"></div>
+  <div class="container">
+    <div class="text-center mb-4 fade-in">
+      <h2 class="gradient-text">Mastering GenAI by Reading About it is like buying a car without test-driving it.</h2>
       <div style="margin: 3rem auto; max-width: 800px;">
         <img src="img/testDrive.png" alt="Test Drive GenAI" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow-medium);" class="fade-in">
       </div>
       <p class="lead">
-        You need to test-drive it!
+        Take it for a spin, but with someone who can demonstrate the key features.
       </p>
     </div>
   </div>
