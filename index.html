@@ -878,10 +878,10 @@ section{
   <div class="hero-particles" id="particles"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge">Founding Cohort • August 2025 • Limited to 25</div>
+      <div class="hero-badge">Founding Cohort • August 2025 • Limited Seats Available</div>
       <h1 class="serif">From <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable</span> in Five Weeks</h1>
       <p class="hero-subtitle">
-        Master generative AI through intensive hands-on building. <br> Join the genAI flagship masterclass for decision-makers ready to lead with confidence.
+        Master generative AI through intensive hands-on building. <br> Join the <strong>genAI flagship masterclass for decision-makers</strong> ready to lead with confidence.
       </p>
       <div class="hero-cta" style="display: flex; justify-content: center;">
         <a href="#apply" class="btn btn-gold">Claim Your Seat</a>
@@ -942,7 +942,7 @@ section{
       <div class="card fade-in" style="animation-delay:0.2s">
         <div class="card-icon">🎯</div>
         <h3>Elite Cohort</h3>
-        <p>25 ambitious professionals. Private coaching. Zero lurkers. Maximum momentum.</p>
+        <p>Limited Seats Available. Private coaching. Zero lurkers. Maximum momentum.</p>
       </div>
       <div class="card fade-in" style="animation-delay:0.4s">
         <div class="card-icon">⚡</div>
@@ -1021,7 +1021,7 @@ section{
       </div>
       <div class="stat-item fade-in" style="animation-delay:0.6s">
         <h3>25</h3>
-        <p>Founding seats only</p>
+        <p>Limited Seats Available</p>
       </div>
     </div>
   </div>
@@ -1164,7 +1164,8 @@ section{
         <a href="#apply" class="btn btn-gold">Choose Arcturus</a>
       </div>
       
-      <div class="pricing-card slide-in-right">
+      <div class="pricing-card slide-in-right" style="position:relative;overflow:hidden;">
+        <div style="position:absolute;top:20px;right:-30px;background:linear-gradient(90deg,var(--gold-premium) 0%,var(--gold-rich) 100%);color:var(--white);padding:0.5rem 3rem;font-size:0.8rem;font-weight:800;transform:rotate(45deg);box-shadow:var(--shadow-medium);z-index:1;">LIMITED SEATS</div>
         <h3>Betelgeuse</h3>
         <p style="color:var(--grey-dark);margin-bottom:2rem">VIP transformation journey</p>
         <div class="price">€2,500</div>
@@ -1175,6 +1176,7 @@ section{
           <li>✓ Executive Briefing Materials</li>
           <li>✓ 15% Referral Commission</li>
           <li>✓ Direct Access to Victor</li>
+          <li><strong style="color:var(--gold-premium)">Limited Seats Available.</strong></li>
         </ul>
         <a href="#apply" class="btn btn-secondary">Go VIP</a>
       </div>
@@ -1225,7 +1227,7 @@ section{
       <h2 style="color:var(--white);margin-bottom:2rem">The AI Revolution Isn't Coming.<br>It's Here.</h2>
       <p class="lead" style="color:rgba(255,255,255,0.9);max-width:800px;margin:0 auto 3rem">
         Every day you wait, someone else claims your advantage.<br>
-        25 seats. One chance to join the founding cohort.
+        Limited Seats Available. One chance to join the founding cohort.
       </p>
       
       <div class="card" style="max-width:600px;margin:0 auto;background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);color:var(--white)">
@@ -1234,10 +1236,10 @@ section{
           <p><strong>Dates:</strong> August 6 - September 3, 2025</p>
           <p><strong>Schedule:</strong> Wednesdays, 18:30-21:00 IST</p>
           <p><strong>Format:</strong> Live online sessions</p>
-          <p><strong>Seats Available:</strong> 3 of 25 remaining</p>
+          <p><strong>Seats Available:</strong> Limited Seats Available</p>
           <p><strong>Application Deadline:</strong> July 15, 2025</p>
         </div>
-        <a href="#" class="btn btn-gold" style="margin-top:2rem" onclick="startApplication(event)">
+        <a href="#self-assess" id="apply-button" class="btn btn-gold" style="margin-top:2rem">
           Begin 60-Second Application
         </a>
       </div>
@@ -1431,6 +1433,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const emailCollection = document.getElementById('email-collection');
   const emailForm = document.getElementById('email-form');
   const assessmentResults = document.getElementById('assessment-results');
+  const applyButton = document.getElementById('apply-button');
+  
+  // Check if assessment is already completed (stored in localStorage)
+  if (localStorage.getItem('helios_assessment_completed') === 'true') {
+    if (applyButton) {
+      applyButton.style.display = 'none';
+    }
+  }
   
   let assessmentScore = 0;
   
@@ -1562,7 +1572,7 @@ Based on your responses, you're ready to:
 - Transform from AI-curious to AI-capable in 5 weeks
 - Build real, working AI tools from day one
 - Save 20+ hours monthly through automation
-- Join an elite cohort of 25 ambitious professionals
+- Join an elite cohort of ambitious professionals
 
 Next Steps:
 1. Choose your transformation package (Sirius, Arcturus, or Betelgeuse)
