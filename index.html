@@ -68,15 +68,26 @@ section{padding:4rem 0}
 .btn-success:hover{background:#059669;transform:translateY(-2px)}
 
 /*  Hero  */
-.hero{background:linear-gradient(135deg,var(--white) 0%,var(--light-grey) 100%);
-      min-height:90vh;display:flex;align-items:center}
+.hero{
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), 
+              url('img/orbitalSunrise.png');
+  background-size: cover;
+  background-position: center;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  color:var(--white)
+}
+.hero h1{color:var(--white)}
+.hero .highlight{color:var(--light-blue)}
+.hero .lead{color:rgba(255,255,255,0.9)}
 .hero-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;
               align-items:center}
 .hero-badge{display:inline-block;padding:.5rem 1rem;background:var(--light-blue);
             color:var(--white);border-radius:2rem;font-size:.8rem;font-weight:600;
             margin-bottom:1.5rem;letter-spacing:.5px}
-.hero-image{background:var(--white);padding:2rem;border-radius:1rem;
-            box-shadow:var(--shadow-lg);text-align:center}
+.hero-image{background:rgba(255,255,255,0.15);padding:2rem;border-radius:1rem;
+            box-shadow:var(--shadow-lg);text-align:center;backdrop-filter:blur(10px)}
 
 /*  Grid helpers  */
 .grid{display:grid;gap:2rem}
@@ -186,24 +197,17 @@ section{padding:4rem 0}
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-badge">Founding Cohort • August 2025</div>
-        <h1>Go from <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable </span>in five weeks.</h1>
+        <div class="hero-badge">Founding Cohort • August 2025</div>
+        <h1>Go from <span class="highlight">AI Curious</span> to <span class="highlight">AI Capable </span>in five weeks.</h1>
         <p class="lead">
-          Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
+          Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
         </p>
         <a href="#apply" class="btn btn-primary">See if you're a fit</a>
         <a href="#value" class="btn btn-secondary">See the 10× ROI</a>
       </div>
       <div class="hero-image">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="300" rx="10" fill="#f8fafc"/>
-          <circle cx="200" cy="150" r="80" fill="#3b82f6" opacity=".15"/>
-          <circle cx="200" cy="150" r="60" fill="#3b82f6" opacity=".28"/>
-          <circle cx="200" cy="150" r="40" fill="#3b82f6" opacity=".4"/>
-          <circle cx="200" cy="150" r="20" fill="#3b82f6"/>
-          <text x="200" y="158" fill="#fff" font-size="16" font-weight="700"
-                text-anchor="middle">AI</text>
-        </svg>
+        <h2 style="color:var(--white);font-size:2.5rem;margin:0;">HELIOS</h2>
+        <p style="color:var(--white);opacity:0.9;margin-top:0.5rem;">Illuminating Your AI Journey</p>
       </div>
     </div>
   </div>
