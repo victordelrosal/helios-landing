@@ -78,10 +78,11 @@ section{padding:4rem 0}
   align-items:center;
   color:var(--white)
 }
-.hero h1{color:var(--white);max-width:1000px}
+.hero h1{color:var(--white);max-width:1000px; margin-left: auto; margin-right: auto;}
 .hero .highlight{color:var(--light-blue)}
-.hero .lead{color:rgba(255,255,255,0.9);max-width:900px}
-.hero-content{display:flex;flex-direction:column;align-items:flex-start}
+.hero .lead{color:rgba(255,255,255,0.9);max-width:900px; margin-left: auto; margin-right: auto;}
+.hero-content{display:flex;flex-direction:column;align-items:center;} /* Changed align-items:flex-start to align-items:center */
+.hero-text{text-align:center;} /* Added to center content of hero-text */
 .hero-badge{display:inline-block;padding:.5rem 1rem;background:var(--light-blue);
             color:var(--white);border-radius:2rem;font-size:.8rem;font-weight:600;
             margin-bottom:1.5rem;letter-spacing:.5px}
@@ -200,7 +201,7 @@ section{padding:4rem 0}
           Somewhere in your industry a pro with half your experience is closing deals, shipping reports, and dazzling the board three times faster—simply because they know how to get real work done with generative AI. Helios might be for you...
         </p>
         <a href="#apply" class="btn btn-primary">See if you're a fit</a>
-        <a href="#value" class="btn btn-secondary">See the 10× ROI</a>
+        
       </div>
     </div>
   </div>
