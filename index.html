@@ -1744,7 +1744,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Store that assessment was completed
     localStorage.setItem('helios_assessment_completed', 'true');
     
-    if (score >= 10) {
+    // Get individual question values
+    const q1 = parseInt(document.getElementById('q1').value); // AI proficiency
+    const q2 = parseInt(document.getElementById('q2').value); // Commitment to sessions
+    const q3 = parseInt(document.getElementById('q3').value); // Tech comfort
+    const q4 = parseInt(document.getElementById('q4').value); // Own computer
+    
+    // Check exclusion conditions:
+    // - Advanced user (q1 = 3)
+    // - Cannot commit to sessions (q2 = 1)
+    // - Struggles with tech (q3 = 1)
+    // - No own computer (q4 = 1)
+    if (q1 === 3 || q2 === 1 || q3 === 1 || q4 === 1) {
+      // Not suitable for HELIOS - don't show pricing section
+      pricingSection.style.display = 'none';
+      
+      resultIcon.innerHTML = '🌱';
+      resultTitle.innerHTML = 'HELIOS Is Not The Right Fit';
+      
+      // Customize message based on the specific reason(s)
+      let reasons = [];
+      if (q1 === 3) reasons.push("you're already at an advanced level");
+      if (q2 === 1) reasons.push("the program requires commitment to all five evening sessions");
+      if (q3 === 1) reasons.push("the program requires basic technical comfort");
+      if (q4 === 1) reasons.push("you need access to your own computer");
+      
+      let reasonText = reasons.join(" and ");
+      
+      resultMessage.innerHTML = `Based on your responses, HELIOS isn't the best fit because ${reasonText}. We appreciate your interest in AI transformation and would be happy to recommend other resources that might better match your current situation.`;
+      resultCTA.innerHTML = `
+        <p style="margin-bottom: 1.5rem; color: var(--grey-dark);">We've sent some alternative recommendations to ${email}</p>
+        <a href="#" class="btn btn-secondary" onclick="alert('Resource guide would be sent here'); return false;">Explore Alternatives</a>
+      `;
+    } else if (score >= 10) {
       // Perfect fit - show pricing section
       pricingSection.style.display = 'block';
       
@@ -1769,13 +1801,16 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#program" class="btn btn-secondary">Learn More</a>
       `;
     } else {
-      // Needs preparation - don't show pricing section
-      resultIcon.innerHTML = '🌱';
-      resultTitle.innerHTML = 'You\'re on the Right Path!';
-      resultMessage.innerHTML = `While HELIOS might be a bit advanced for your current level, we admire your interest in AI transformation. Consider exploring some foundational resources first, then join us when you're ready for intensive hands-on building.`;
+      // Moderate score but no exclusion criteria - good fit with more preparation
+      pricingSection.style.display = 'block';
+      
+      resultIcon.innerHTML = '💡';
+      resultTitle.innerHTML = '<span style="color: var(--gold-premium);">You\'re Ready for HELIOS</span>';
+      resultMessage.innerHTML = `While you're still building your AI foundation, you meet all the key requirements for HELIOS. Our structured approach will help you quickly gain confidence and practical skills, even as a beginner.`;
       resultCTA.innerHTML = `
-        <p style="margin-bottom: 1.5rem; color: var(--grey-dark);">We've sent some helpful resources to ${email}</p>
-        <a href="#" class="btn btn-secondary" onclick="alert('Resource guide would be sent here'); return false;">Get Free AI Starter Guide</a>
+        <p style="margin-bottom: 1.5rem; color: var(--grey-dark);">We've sent some pre-course preparation tips to ${email}</p>
+        <a href="#pricing" class="btn btn-gold" style="margin-right: 1rem;">View Packages</a>
+        <a href="#program" class="btn btn-secondary">Learn More</a>
       `;
     }
   }
