@@ -917,8 +917,21 @@ section{
   opacity: 0 !important;
 }
 
-.example-card:hover > div:first-child {
-  opacity: 0 !important;
+.btn-highlight {
+  opacity: 0;
+  transform: translateY(50%) scale(2);
+}
+
+.analyse-btn:hover .btn-highlight,
+.submit-btn:hover .btn-highlight {
+  opacity: 0.4;
+  transform: translateY(0) scale(1);
+}
+
+.analyse-btn:hover,
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-deep);
 }
 
 /* Ensures content remains above the effects */
@@ -951,9 +964,9 @@ section{
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge">Founding Cohort • August 2025 • Limited Seats Available</div>
-      <h1 class="serif">Go From <span class="highlight">AI Curious</span> to <br> <span class="highlight">AI Capable</span> in Five Weeks</h1>
+      <h1 class="serif">Go From <span class="highlight">AI Curious</span> to <br> <span class="highlight">AI Fluent</span> in Five Weeks</h1>
       <p class="hero-subtitle">
-        Master generative AI through intensive hands-on building. <br> Join the <strong>genAI flagship masterclass for decision-makers</strong> ready to lead with confidence.
+        A hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
       </p>
       <div class="hero-cta" style="display: flex; justify-content: center;">
         <a href="#apply" class="btn btn-gold">Claim Your Seat</a>
@@ -967,28 +980,27 @@ section{
   <div class="section-pattern"></div>
   <div class="container">
     <div class="text-center mb-4 fade-in">
-      <h2 class="gradient-text">The Quiet Crisis You Feel but Can't Name</h2>
+      <h2 class="gradient-text">You Don’t Need More Theory!</h2>
       <p class="lead">
-        While you're reading slide decks about "AI transformation,"<br>
-        someone with half your experience is doing 3× the work in half the time.
+        Does this sound familiar?
       </p>
     </div>
     
     <div class="feature-grid">
       <div class="feature-card slide-in-left">
         <div class="card-icon">😰</div>
-        <h3>The Corporate Paradox</h3>
-        <p>Leadership preaches AI revolution while providing zero practical training. You're expected to transform without tools.</p>
+        <h3>No Tools or Practice</h3>
+        <p>With limited access to tools and little practice, generative AI is nothing but theory.</p>
       </div>
       <div class="feature-card fade-in">
         <div class="card-icon">🚀</div>
         <h3>The Productivity Gap</h3>
-        <p>Your peers ship in hours what takes you days. Not because they're smarter—they've mastered AI workflows.</p>
+        <p>Your peers seem to get a lot done with genAI, but wait, they're not any smarter!</p>
       </div>
       <div class="feature-card slide-in-right">
         <div class="card-icon">⏰</div>
         <h3>The Ticking Clock</h3>
-        <p>Every week you wait, the gap widens. The boat isn't just leaving—it's already halfway to the horizon.</p>
+        <p>You're sick of it: AI is everywhere and you are just reading about it, not applying it daily!</p>
       </div>
     </div>
   </div>
@@ -1248,14 +1260,14 @@ section{
           <!-- Question 1 -->
           <div class="assess-question" style="margin-bottom: 3rem;">
             <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--black-soft);">
-              1. How would you describe your current AI experience?
+              How proficient are you in the use of generative AI?
             </h3>
             <div class="slider-container">
               <input type="range" id="q1" name="q1" min="1" max="3" value="2" class="custom-slider">
               <div class="slider-labels" style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: var(--grey-dark);">
-                <span>AI Curious<br><small style="opacity: 0.7;">Just starting</small></span>
-                <span style="text-align: center;">AI Aware<br><small style="opacity: 0.7;">Some experiments</small></span>
-                <span style="text-align: right;">AI Active<br><small style="opacity: 0.7;">Regular use</small></span>
+                <span>Beginner<br><small style="opacity: 0.7;">Just starting</small></span>
+                <span style="text-align: center;">Intermediate<br><small style="opacity: 0.7;">Some experience</small></span>
+                <span style="text-align: right;">Advanced<br><small style="opacity: 0.7;">Power User</small></span>
               </div>
             </div>
           </div>
@@ -1263,14 +1275,14 @@ section{
           <!-- Question 2 -->
           <div class="assess-question" style="margin-bottom: 3rem;">
             <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--black-soft);">
-              2. What's your biggest AI challenge right now?
+              Can you commit to and connect to attending five 2.5 hr evening sessions on Wednesdays?
             </h3>
             <div class="slider-container">
               <input type="range" id="q2" name="q2" min="1" max="3" value="2" class="custom-slider">
               <div class="slider-labels" style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: var(--grey-dark);">
-                <span>Don't know where<br><small style="opacity: 0.7;">to start</small></span>
-                <span style="text-align: center;">Know theory, need<br><small style="opacity: 0.7;">practical skills</small></span>
-                <span style="text-align: right;">Ready to scale<br><small style="opacity: 0.7;">& systematize</small></span>
+                <span>Not really<br><small style="opacity: 0.7;">Difficult to commit</small></span>
+                <span style="text-align: center;">Maybe<br><small style="opacity: 0.7;">I'll try</small></span>
+                <span style="text-align: right;">Absolutely<br><small style="opacity: 0.7;">I'm in</small></span>
               </div>
             </div>
           </div>
@@ -1278,32 +1290,51 @@ section{
           <!-- Question 3 -->
           <div class="assess-question" style="margin-bottom: 3rem;">
             <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--black-soft);">
-              3. How committed are you to mastering AI in the next 5 weeks?
+              Do you have satisfactory/average computer and online skills?
             </h3>
             <div class="slider-container">
               <input type="range" id="q3" name="q3" min="1" max="3" value="2" class="custom-slider">
               <div class="slider-labels" style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: var(--grey-dark);">
-                <span>Exploring<br><small style="opacity: 0.7;">options</small></span>
-                <span style="text-align: center;">Ready to learn<br><small style="opacity: 0.7;">with support</small></span>
-                <span style="text-align: right;">All in<br><small style="opacity: 0.7;">Let's go!</small></span>
+                <span>I struggle with tech<br><small style="opacity: 0.7;">Need a lot of help</small></span>
+                <span style="text-align: center;">I get by<br><small style="opacity: 0.7;">Moderate comfort</small></span>
+                <span style="text-align: right;">Fully comfortable<br><small style="opacity: 0.7;">Can follow tutorials</small></span>
               </div>
             </div>
           </div>
           
-          <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1.2rem;">
-            Get My Assessment Result
+          <!-- Question 4 -->
+          <div class="assess-question" style="margin-bottom: 3rem;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--black-soft);">
+              Do you have your own computer (not a work laptop)?
+            </h3>
+            <div class="slider-container">
+              <input type="range" id="q4" name="q4" min="1" max="3" value="2" class="custom-slider">
+              <div class="slider-labels" style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: var(--grey-dark);">
+                <span>No<br><small style="opacity: 0.7;">Only work device</small></span>
+                <span style="text-align: center;">Not sure<br><small style="opacity: 0.7;">Possibly borrow one</small></span>
+                <span style="text-align: right;">Yes<br><small style="opacity: 0.7;">With admin rights</small></span>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary analyse-btn" style="width: 100%; font-size: 1.1rem; padding: 1.2rem; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--blue-royal) 0%, var(--blue-accent) 100%); border: none; transform-style: preserve-3d; transition: all 0.3s ease;">
+            <span style="position: relative; z-index: 2;">Analyse My Readiness</span>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%); transform: translateY(50%) scale(2); opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;" class="btn-highlight"></div>
           </button>
         </div>
       </form>
       
       <!-- Email Collection (Hidden Initially) -->
       <div id="email-collection" class="assess-card fade-in" style="display: none; background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 24px; padding: 3rem; box-shadow: var(--shadow-deep); color: var(--white); text-align: center;">
-        <h3 style="color: var(--gold-premium); margin-bottom: 1rem;">Almost There!</h3>
-        <p style="opacity: 0.9; margin-bottom: 2rem;">Enter your email to receive your personalized assessment results and HELIOS readiness score.</p>
+        <h3 style="color: var(--gold-premium); margin-bottom: 1rem;">Your Results Are Ready!</h3>
+        <p style="opacity: 0.9; margin-bottom: 2rem;">Enter your email to receive your personalized HELIOS readiness assessment.</p>
         <form id="email-form">
-          <input type="email" id="user-email" required placeholder="your@email.com" style="width: 100%; padding: 1rem 1.5rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); font-size: 1.1rem; margin-bottom: 1.5rem; backdrop-filter: blur(10px);" />
-          <button type="submit" class="btn btn-gold" style="width: 100%; font-size: 1.1rem; padding: 1.2rem;">
-            Reveal My Results
+          <div style="position: relative; margin-bottom: 2rem;">
+            <input type="email" id="user-email" required placeholder="your@email.com" style="width: 100%; padding: 1.2rem 1.5rem; border-radius: 16px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); font-size: 1.1rem; backdrop-filter: blur(10px);" />
+          </div>
+          <button type="submit" class="btn btn-gold submit-btn" style="width: 100%; font-size: 1.1rem; padding: 1.2rem; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 100%); border: none; transform-style: preserve-3d; transition: all 0.3s ease;">
+            <span style="position: relative; z-index: 2;">Submit</span>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%); transform: translateY(50%) scale(2); opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;" class="btn-highlight"></div>
           </button>
         </form>
       </div>
@@ -1674,8 +1705,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const q1 = parseInt(document.getElementById('q1').value);
     const q2 = parseInt(document.getElementById('q2').value);
     const q3 = parseInt(document.getElementById('q3').value);
+    const q4 = parseInt(document.getElementById('q4').value);
     
-    assessmentScore = q1 + q2 + q3;
+    assessmentScore = q1 + q2 + q3 + q4;
     
     // Hide form, show email collection
     assessmentForm.style.display = 'none';
@@ -1709,7 +1741,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultCTA = document.getElementById('result-cta');
     const pricingSection = document.getElementById('pricing');
     
-    if (score >= 7) {
+    // Store that assessment was completed
+    localStorage.setItem('helios_assessment_completed', 'true');
+    
+    if (score >= 10) {
       // Perfect fit - show pricing section
       pricingSection.style.display = 'block';
       
@@ -1721,7 +1756,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#pricing" class="btn btn-primary" style="margin-right: 1rem;">Choose Your Package</a>
         <a href="#program" class="btn btn-secondary">Review Program</a>
       `;
-    } else if (score >= 5) {
+    } else if (score >= 7) {
       // Good fit with guidance - show pricing section
       pricingSection.style.display = 'block';
       
@@ -1756,11 +1791,11 @@ Dear Future AI Leader,
 
 Thank you for completing the HELIOS readiness assessment!
 
-Your Assessment Score: ${score}/9
+Your Assessment Score: ${score}/12
 
 `;
     
-    if (score >= 7) {
+    if (score >= 10) {
       emailBody += `
 🚀 Congratulations! You're perfectly positioned for HELIOS.
 
@@ -1777,7 +1812,7 @@ Next Steps:
 
 Secure your seat: [Link to application]
 `;
-    } else if (score >= 5) {
+    } else if (score >= 7) {
       emailBody += `
 ✨ You're ready for transformation with HELIOS!
 
