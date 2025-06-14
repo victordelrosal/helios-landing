@@ -399,8 +399,10 @@ h3{
 .card-icon{
   font-size:3rem;
   margin-bottom:1.5rem;
-  display:inline-block;
+  display:block;
+  text-align:center;
   animation:bounce 2s infinite;
+  width:100%;
 }
 
 @keyframes bounce{
@@ -600,9 +602,10 @@ section{
   box-shadow:var(--shadow-deep);
 }
 
-.feature-card:hover::after{
+/* Removing the previous hover effect */
+/* .feature-card:hover::after{
   opacity:1;
-}
+} */
 
 /* Animations */
 .fade-in{
@@ -900,6 +903,8 @@ section{
   box-shadow: var(--shadow-deep) !important;
 }
 
+/* Removing the previous hover effects */
+/*
 .example-card:hover h3 {
   color: var(--black-soft) !important;
 }
@@ -911,11 +916,12 @@ section{
 .example-card:hover::after {
   opacity: 1;
 }
+*/
 
-/* Crystal reflection highlight */
-.example-card > div:first-child {
+/* Removed crystal reflection highlight */
+/* .example-card > div:first-child {
   opacity: 0 !important;
-}
+} */
 
 .btn-highlight {
   opacity: 0;
@@ -939,6 +945,72 @@ section{
 .example-card p {
   position: relative;
   z-index: 2;
+}
+
+/* Meet Your Instructor Section Hover Effect */
+.instructor-bio-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.instructor-bio-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 184, 77, 0.4) 0%, rgba(255, 184, 77, 0.2) 40%, rgba(255, 184, 77, 0.1) 70%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.instructor-bio-card:hover::before {
+  width: 90%;
+  height: 90%;
+  opacity: 1;
+}
+
+.instructor-bio-card > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sun-like Halo Hover Effect for Feature Cards and Example Cards */
+.feature-card, .example-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.feature-card::before, .example-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 230, 100, 0.3) 0%, rgba(255, 230, 100, 0.15) 40%, rgba(255, 230, 100, 0.05) 70%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.feature-card:hover::before, .example-card:hover::before {
+  width: 90%;
+  height: 90%;
+  opacity: 1;
+}
+
+.feature-card > *, .example-card > * {
+  position: relative;
+  z-index: 1;
 }
 </style>
 </head>
@@ -1021,39 +1093,39 @@ section{
       <div class="example-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Marketing Manager</h3>
-          <p style="line-height: 1.7;">A marketing manager in Dublin just created social media content that would have cost €5,000 from an agency. Time invested: 90 minutes.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Marketing Manager</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">A marketing manager in Dublin just created social media content that would have cost €5,000 from an agency. Time invested: 90 minutes.</p>
         </div>
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Teacher</h3>
-          <p style="line-height: 1.7;">A teacher in Cork built a quiz generator for her 6th class that adapts to each student's pace. Previous coding experience: zero.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Teacher</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">A teacher in Cork built a quiz generator for her 6th class that adapts to each student's pace. Previous coding experience: zero.</p>
         </div>
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Consultant</h3>
-          <p style="line-height: 1.7;">A consultant in Galway automated her weekly report writing, saving 4 hours every Friday afternoon.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Consultant</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">A consultant in Galway automated her weekly report writing, saving 4 hours every Friday afternoon.</p>
         </div>
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Busy Parent</h3>
-          <p style="line-height: 1.7;">A busy parent in Kilkenny created an AI meal planner that uses whatever's in the fridge, ending the daily "what's for dinner?" stress.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Busy Parent</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">A busy parent in Kilkenny created an AI meal planner that uses whatever's in the fridge, ending the daily "what's for dinner?" stress.</p>
         </div>
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Coach</h3>
-          <p style="line-height: 1.7;">A club hurling coach in Limerick built a simple tool to simulate random game scenarios to get players mentally ready; it took less than 30 minutes to set up.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Coach</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">A club hurling coach in Limerick built a simple tool to simulate random game scenarios to get players mentally ready; it took less than 30 minutes to set up.</p>
         </div>
         
         <div class="example-card fade-in" style="padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0;"></div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">The Educators</h3>
-          <p style="line-height: 1.7;">Parents in Westmeath created flashcards that adapt to their child's learning abilities, creating a fun, sustainable daily learning routine.</p>
+          <!-- Removed the blue glow div -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">The Educators</h3>
+          <p style="line-height: 1.7; position: relative; z-index: 1;">Parents in Westmeath created flashcards that adapt to their child's learning abilities, creating a fun, sustainable daily learning routine.</p>
         </div>
       </div>
     </div>
@@ -1204,6 +1276,53 @@ section{
               <p style="font-weight: 600; color: var(--gold-premium); margin-bottom: 0.5rem;"><em>What You'll Ship:</em></p>
               <p style="margin-bottom: 0;">A professional portfolio of AI-powered applications and your HELIOS certification as an AI-capable professional</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Meet Your Instructor Section -->
+<section class="section" style="background: linear-gradient(to bottom, var(--white) 0%, var(--grey-light) 100%); position: relative; overflow: hidden;">
+  <div class="section-pattern"></div>
+  
+  <!-- Floating background elements -->
+  <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); animation: float 15s infinite ease-in-out;"></div>
+  <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%); animation: float 20s infinite ease-in-out reverse;"></div>
+  
+  <div class="container">
+    <div class="text-center mb-4 fade-in">
+      <h2 class="gradient-text">Meet Your Instructor</h2>
+    </div>
+    
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <!-- Instructor Image -->
+      <div class="text-center mb-4 fade-in">
+        <img src="img/VictordelRosal.png" alt="Victor del Rosal" style="max-width: 300px; width: 100%; height: auto; border-radius: 20px; margin-bottom: 2rem;">
+      </div>
+      
+      <!-- Instructor Bio -->
+      <div class="fade-in" style="background: var(--white); border-radius: 24px; padding: 3rem; box-shadow: var(--shadow-medium); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%); opacity: 0.3; z-index: 0;"></div>
+        
+        <div style="position: relative; z-index: 1;">
+          <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--black-soft);">
+            <strong>Victor del Rosal</strong> is an award-winning AI educator, book author of <em>HUMANLIKE: The AI Transformation</em>. He has trained Fortune 500 leaders, taught at the Master's level in AI for Business, and currently serves as Chief AI Officer at fiveinnolabs.
+          </p>
+          
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--grey-dark);">
+            Previously he was Head of Business Analysis for High Tech & Telecom at the TCS Supply Chain Center of Excellence (Dublin) and Director of Strategy & Business Development, CloudStrong, cloud services provider.
+          </p>
+          
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--grey-dark);">
+            Victor's delivers sessions using his <strong style="color: var(--blue-electric);">ECHO5 method</strong>—Enlighten, Encourage, Envision, Empower, Equip to help learners quickly gain competency with a hands-on approach. Whether you're new to generative AI or just starting to explore its potential, you'll feel guided, challenged, and supported every step of the way. For over a decade, he has perfected this approach to help participants achieve the learning outcomes in an engaging and enjoyable learning environment.
+          </p>
+          
+          <div style="background: rgba(0,102,255,0.05); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; border-left: 4px solid var(--gold-premium);">
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 0; color: var(--black-soft); font-weight: 500;">
+              He has been recognised with a <strong style="color: var(--gold-premium);">Teaching Award by the National Forum of T&L Enhancement in Higher Education</strong> and the <strong style="color: var(--gold-premium);">NCI President's Award for Distinguished Teaching</strong>.
+            </p>
           </div>
         </div>
       </div>
