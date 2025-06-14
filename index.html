@@ -1012,6 +1012,64 @@ section{
   position: relative;
   z-index: 1;
 }
+
+/* Ambassador avatars styling */
+.ambassador-avatar {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.ambassador-avatar:hover {
+  transform: translateY(-5px);
+  animation: sunHalo 1.5s infinite alternate;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 1.2rem;
+  width: 150px;
+  transition: all 0.3s ease;
+}
+
+.avatar-container:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ambassador-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold-premium);
+  margin-bottom: 0.8rem;
+}
+
+.ambassador-role {
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.ambassador-name {
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.ambassador-title {
+  color: var(--dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
 </style>
 </head>
 
@@ -1137,14 +1195,14 @@ section{
   <div class="section-pattern"></div>
   <div class="container">
     <div class="text-center mb-4 fade-in">
-      <h2 class="gradient-text">Mastering GenAI by Reading About it is like buying a car without test-driving it.</h2>
+      <h2 class="gradient-text">To master genAI, get behind the wheel!</h2>
       </div>
       <div style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; overflow: hidden;">
         <img src="img/testDrive.png" alt="Test Drive GenAI" style="width: 100%; display: block;" class="fade-in">
       </div>
       <div class="text-center mb-4 fade-in">
       <p class="lead" style="font-size: 2em;">
-        Take it for a spin, but with someone who can demonstrate the key features.
+        And even better, have your instructor beside you.
       </p>
     </div>
   </div>
@@ -1462,6 +1520,9 @@ section{
       <!-- Results (Hidden Initially) -->
       <div id="assessment-results" class="assess-card fade-in" style="display: none; background: var(--white); border-radius: 24px; padding: 3rem; box-shadow: var(--shadow-deep); text-align: center; position: relative; overflow: hidden;">
         <div class="result-animation" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 50%); opacity: 0.3; animation: rotate 10s linear infinite;"></div>
+        <a href="#" id="back-to-assessment" style="position: absolute; top: 1.5rem; left: 1.5rem; color: var(--grey-dark); text-decoration: none; display: flex; align-items: center; font-size: 0.9rem; opacity: 0.7; transition: opacity 0.3s ease; z-index: 10;">
+          <span style="margin-right: 0.3rem;">↩️</span> Change answers
+        </a>
         <div style="position: relative; z-index: 2;">
           <div id="result-icon" style="font-size: 5rem; margin-bottom: 1.5rem;"></div>
           <h3 id="result-title" style="font-size: 2.5rem; margin-bottom: 1rem;"></h3>
@@ -1530,9 +1591,83 @@ section{
       
     </div>
     
-    <p class="text-center" style="margin-top:3rem;font-size:1.1rem">
-      <strong>🛡️ 30-Day Guarantee:</strong> Ship one working AI tool or full refund. Zero risk.
-    </p>
+    <!-- Guarantee Section (Inside Pricing) -->
+    <div class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; box-shadow: var(--shadow-medium);">
+        <h2 style="color: var(--gold-premium); margin-bottom: 1.5rem; font-size: 2.2rem;">💸 Unbeatable Guarantee: Results or You Don't Pay</h2>
+        
+        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          If you don't ship a real, working AI tool in 5 weeks—and if you don't feel at least 5X more confident using GenAI in your life or work—we'll give you a full refund.
+        </p>
+        
+        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          No forms. No friction. Just send us an email.
+        </p>
+        
+        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          We remove all risk so you can focus on doing the work.
+        </p>
+        
+        <p style="color: var(--gold-light); font-size: 1.3rem; font-weight: 600; line-height: 1.8; margin-top: 2rem;">
+          HELIOS must deliver value, or you get your money back. Simple.
+        </p>
+      </div>
+    </div>
+    
+    <!-- HELIOS AI Ambassadors Section -->
+    <div class="container mt-5" style="padding-top: 3rem;">
+      <div class="text-center mb-4">
+        <h3 style="font-size: 1.8rem; margin-bottom: 2rem; background: linear-gradient(90deg, var(--gold-premium), var(--gold-rich)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Or Talk to One of Our 🔆 HELIOS AI Ambassadors</h3>
+        
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;">
+          <!-- Ambassador Avatars - Using Victor's image as provisional placeholder -->
+          <div class="ambassador-avatar">
+            <div class="avatar-container">
+              <img src="img/VictordelRosal.png" alt="HELIOS Ambassador" class="ambassador-img">
+              <div class="ambassador-role">HELIOS Ambassador</div>
+              <div class="ambassador-name">Emma T.</div>
+              <div class="ambassador-title">Data Scientist</div>
+            </div>
+          </div>
+          
+          <div class="ambassador-avatar">
+            <div class="avatar-container">
+              <img src="img/VictordelRosal.png" alt="HELIOS Ambassador" class="ambassador-img">
+              <div class="ambassador-role">HELIOS Ambassador</div>
+              <div class="ambassador-name">Michael R.</div>
+              <div class="ambassador-title">Product Manager</div>
+            </div>
+          </div>
+          
+          <div class="ambassador-avatar">
+            <div class="avatar-container">
+              <img src="img/VictordelRosal.png" alt="HELIOS Ambassador" class="ambassador-img">
+              <div class="ambassador-role">HELIOS Ambassador</div>
+              <div class="ambassador-name">Sarah J.</div>
+              <div class="ambassador-title">Marketing Lead</div>
+            </div>
+          </div>
+          
+          <div class="ambassador-avatar">
+            <div class="avatar-container">
+              <img src="img/VictordelRosal.png" alt="HELIOS Ambassador" class="ambassador-img">
+              <div class="ambassador-role">HELIOS Ambassador</div>
+              <div class="ambassador-name">David K.</div>
+              <div class="ambassador-title">UI/UX Designer</div>
+            </div>
+          </div>
+          
+          <div class="ambassador-avatar">
+            <div class="avatar-container">
+              <img src="img/VictordelRosal.png" alt="HELIOS Ambassador" class="ambassador-img">
+              <div class="ambassador-role">HELIOS Ambassador</div>
+              <div class="ambassador-name">Olivia P.</div>
+              <div class="ambassador-title">Business Analyst</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1781,6 +1916,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const emailForm = document.getElementById('email-form');
   const assessmentResults = document.getElementById('assessment-results');
   const applyButton = document.getElementById('apply-button');
+  const backToAssessment = document.getElementById('back-to-assessment');
   
   // Check if assessment is already completed (stored in localStorage)
   if (localStorage.getItem('helios_assessment_completed') === 'true') {
@@ -1790,6 +1926,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   let assessmentScore = 0;
+  
+  // Back button functionality
+  if (backToAssessment) {
+    backToAssessment.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Hide results and show the assessment form again
+      assessmentResults.style.display = 'none';
+      assessmentForm.style.display = 'block';
+      
+      // Reset localStorage if needed
+      localStorage.removeItem('helios_assessment_completed');
+      
+      // Re-enable the apply button if it exists
+      if (applyButton) {
+        applyButton.style.display = 'inline-block';
+      }
+      
+      // Scroll back to the assessment form
+      assessmentForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   
   // Update slider colors based on value
   document.querySelectorAll('.custom-slider').forEach(slider => {
