@@ -863,6 +863,11 @@ section{
   to { transform: translateX(100%); opacity: 0; }
 }
 
+@keyframes goldShimmer {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
 /* Glassmorphic Crystal 3D Effect for Example Cards */
 .example-card {
   background: linear-gradient(135deg, var(--white) 0%, var(--grey-light) 100%) !important;
@@ -1593,24 +1598,32 @@ section{
     
     <!-- Guarantee Section (Inside Pricing) -->
     <div class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 100%); border-radius: 16px; box-shadow: var(--shadow-medium);">
-        <h2 style="color: var(--gold-premium); margin-bottom: 1.5rem; font-size: 2.2rem;">💸 Unbeatable Guarantee: Results or You Don't Pay</h2>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 2.5rem; background: linear-gradient(135deg, #f5d67a 0%, #dca237 25%, #b07c33 50%, #f7df7a 75%, #ffd700 100%); border-radius: 16px; box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3), inset 0 1px 30px rgba(255, 255, 255, 0.4); position: relative; overflow: hidden; border: 1px solid rgba(255, 223, 0, 0.6);">
+        <!-- Gold shimmer overlay -->
+        <div style="position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%, transparent 100%); pointer-events: none; animation: goldShimmer 3s infinite linear;"></div>
         
-        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <h2 style="color: #222; margin-bottom: 1.5rem; font-size: 2.4rem; text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);">💸 Unbeatable Guarantee: Results or You Don't Pay</h2>
+        
+        <p style="color: #333; font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 500;">
           If you don't ship a real, working AI tool in 5 weeks—and if you don't feel at least 5X more confident using GenAI in your life or work—we'll give you a full refund.
         </p>
         
-        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <p style="color: #333; font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 500;">
           No forms. No friction. Just send us an email.
         </p>
         
-        <p style="color: var(--white); font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <p style="color: #333; font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 500;">
           We remove all risk so you can focus on doing the work.
         </p>
         
-        <p style="color: var(--gold-light); font-size: 1.3rem; font-weight: 600; line-height: 1.8; margin-top: 2rem;">
+        <p style="color: #222; font-size: 1.4rem; font-weight: 700; line-height: 1.8; margin-top: 2rem; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);">
           HELIOS must deliver value, or you get your money back. Simple.
         </p>
+        
+        <!-- Gold seal -->
+        <div style="position: absolute; bottom: -25px; right: -25px; width: 120px; height: 120px; background: radial-gradient(circle, #ffd700 0%, #b07c33 100%); border-radius: 50%; transform: rotate(-15deg); display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 2px solid #fff;">
+          <div style="font-size: 1rem; font-weight: 800; color: #222; text-align: center; transform: rotate(15deg);">100%<br>GUARANTEE</div>
+        </div>
       </div>
     </div>
     
@@ -1697,6 +1710,55 @@ section{
           "Victor transformed our senior leadership. We now prototype ideas in days instead of months. Incredible."
         </p>
         <div class="testimonial-author">— Mark Greville, VP Engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section class="section section-dark" id="faqs">
+  <div class="container">
+    <h2 class="text-center mb-5 fade-in">Frequently Asked Questions</h2>
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item" style="margin-bottom: 2rem; background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="color: var(--gold-premium); font-size: 1.4rem; margin-bottom: 1rem;">Do I need technical experience to join HELIOS?</h3>
+        <p style="color: var(--dark); line-height: 1.8; font-size: 1.1rem;">
+          Not at all. HELIOS is designed for people with little to no coding experience. If you can use Excel or PowerPoint, you're ready for HELIOS. The program is about building practical skills through hands-on projects, not complex theory.
+        </p>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="faq-item" style="margin-bottom: 2rem; background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="color: var(--gold-premium); font-size: 1.4rem; margin-bottom: 1rem;">How much time do I need to commit each week?</h3>
+        <p style="color: var(--dark); line-height: 1.8; font-size: 1.1rem;">
+          Plan for 2.5 hours for each live session plus 2-3 hours of practice time between sessions. The total commitment is approximately 5-6 hours per week over the 5-week program. Many participants find they want to spend more time as they see results.
+        </p>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="faq-item" style="margin-bottom: 2rem; background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="color: var(--gold-premium); font-size: 1.4rem; margin-bottom: 1rem;">What if I miss a live session?</h3>
+        <p style="color: var(--dark); line-height: 1.8; font-size: 1.1rem;">
+          All sessions are recorded and available within 24 hours. You'll also have access to the community forum where you can ask questions. For the best experience, we recommend attending live when possible, but the program is designed to accommodate busy professionals.
+        </p>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="faq-item" style="margin-bottom: 2rem; background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="color: var(--gold-premium); font-size: 1.4rem; margin-bottom: 1rem;">What makes HELIOS different from other AI courses?</h3>
+        <p style="color: var(--dark); line-height: 1.8; font-size: 1.1rem;">
+          HELIOS focuses on building real, useful AI tools from day one. You won't just learn theory—you'll implement working solutions during the very first session. The program is led by a practitioner who's implemented GenAI solutions for global enterprises, not just an academic or content creator.
+        </p>
+      </div>
+      
+      <!-- FAQ Item 5 -->
+      <div class="faq-item" style="background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="color: var(--gold-premium); font-size: 1.4rem; margin-bottom: 1rem;">Can my company sponsor my participation?</h3>
+        <p style="color: var(--dark); line-height: 1.8; font-size: 1.1rem;">
+          Absolutely. Many participants get their company to cover the investment as professional development. We can provide the necessary documentation and invoices for your expense report or L&D budget. For multiple seats from the same organization, contact us directly for corporate pricing.
+        </p>
       </div>
     </div>
   </div>
