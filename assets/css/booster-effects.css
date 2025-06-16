@@ -1,0 +1,253 @@
+@keyframes sparkleEffect {
+    0%, 100% {
+        background-position: 0% 0%;
+        opacity: 0.1;
+    }
+    25% {
+        background-position: 100% 100%;
+        opacity: 0.3;
+    }
+    50% {
+        background-position: 100% 0%;
+        opacity: 0.2;
+    }
+    75% {
+        background-position: 0% 100%;
+        opacity: 0.3;
+    }
+}
+
+/* Additional booster pack animations and effects */
+.booster-pack-section {
+    position: relative;
+}
+
+.booster-pack-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23FFD700' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23FFD700'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 800px 800px;
+    opacity: 0.1;
+    z-index: 1;
+    pointer-events: none;
+    animation: sparkleEffect 90s infinite linear;
+}
+
+/* Energy beam animation */
+.booster-pack-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 65%, rgba(255, 215, 0, 0.15) 70%, transparent 80%);
+    background-size: 200% 200%;
+    animation: energyBeam 5s infinite linear;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes energyBeam {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Rocket boost animation for the CTA button */
+.booster-pack-section .btn-gold {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booster-pack-section .btn-gold::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 20px 15px;
+    border-color: transparent transparent rgba(255, 215, 0, 0.3) transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.booster-pack-section .btn-gold:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+.booster-pack-section .btn-gold:hover::after {
+    opacity: 1;
+    animation: rocketBoost 1s infinite alternate;
+}
+
+@keyframes rocketBoost {
+    from { bottom: -25px; opacity: 0.3; }
+    to { bottom: -35px; opacity: 0.7; }
+}
+
+/* Number effects */
+.resource-number {
+    position: relative;
+}
+
+.resource-number::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resource-item:hover .resource-number::after {
+    opacity: 1;
+    animation: numberPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes numberPulse {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    to { transform: translate(-50%, -50%) scale(1.5); opacity: 0.1; }
+}
+
+/* Enhance resource items with boost indicators */
+.resource-item {
+    position: relative;
+}
+
+.resource-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 0%;
+    background: linear-gradient(to bottom, var(--gold-premium), var(--gold-rich));
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-item:hover::before {
+    height: 100%;
+}
+
+/* Adding power level indicators */
+.resource-content {
+    position: relative;
+}
+
+.resource-content::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-premium), transparent);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-item:hover .resource-content::after {
+    width: 100%;
+}
+
+/* Booster particles for JS animation */
+.booster-particle {
+    position: absolute;
+    background: var(--gold-premium);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatParticle 15s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(50px, -30px);
+    }
+    50% {
+        transform: translate(100px, 0);
+    }
+    75% {
+        transform: translate(50px, 30px);
+    }
+}
+
+/* Entrance animations for resource items */
+.resource-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Boost activation effect */
+.boost-activated .resource-item {
+    animation: activateBoost 0.5s forwards;
+}
+
+@keyframes activateBoost {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Gold trail effect for CTA */
+.booster-pack-section .btn-gold {
+    position: relative;
+}
+
+.booster-pack-section .btn-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.booster-pack-section .btn-gold:hover::before {
+    left: 100%;
+}
+
+/* Animation for section when it enters viewport */
+.animate-boost {
+    animation: sectionBoost 1s forwards;
+}
+
+@keyframes sectionBoost {
+    0% {
+        opacity: 0.7;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
