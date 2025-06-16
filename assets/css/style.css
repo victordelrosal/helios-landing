@@ -90,7 +90,7 @@
 }
 
 .resource-item {
-    background: rgba(0, 6, 36, 0.6);
+    background: rgba(240, 242, 245, 0.9);
     border-radius: 16px;
     padding: 30px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -130,7 +130,7 @@
 .resource-item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(10, 20, 60, 0.7);
+    background: rgba(230, 235, 240, 0.95);
     border-color: var(--gold-premium);
 }
 
@@ -187,14 +187,14 @@
 }
 
 .resource-content p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(40, 40, 40, 0.85);
     font-size: 1rem;
     line-height: 1.7;
     transition: all 0.3s ease;
 }
 
 .resource-item:hover .resource-content p {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(20, 20, 20, 0.95);
 }
 
 /* Responsive adjustments */
