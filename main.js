@@ -14,31 +14,40 @@ function handleEmailSubmission(email) {
 
 // Display content based on submittedEmail status
 const submittedEmail = localStorage.getItem('submittedEmail');
+
 document.addEventListener('DOMContentLoaded', function() {
+    const assessmentSection = document.getElementById('self-assess');
+    const pricingSection = document.getElementById('pricing');
+
     if (submittedEmail === 'YES') {
-        // Hide assessment section
-        const assessmentSection = document.getElementById('self-assess');
         if (assessmentSection) {
             assessmentSection.style.display = 'none';
+        } else {
+            console.warn('Assessment section (id="self-assess") not found. Cannot hide it.');
         }
-        
-        // Ensure pricing section is visible
-        const pricingSection = document.getElementById('pricing');
+
         if (pricingSection) {
             pricingSection.style.display = 'block';
+            // If the page is loaded without a hash, scroll to pricing section
+            if (!window.location.hash) {
+                setTimeout(() => {
+                    pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }, 500); // Delay to allow rendering
+            }
+        } else {
+            console.warn('Pricing section (id="pricing") not found. Cannot show or scroll to it.');
         }
-        
-        // If the page is loaded without a hash, scroll to pricing section
-        if (!window.location.hash) {
-            setTimeout(() => {
-                document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});
-            }, 500);
-        }
-    } else {
-        // Ensure assessment section is visible
-        const assessmentSection = document.getElementById('self-assess');
+    } else { // This covers submittedEmail === 'NO' (due to initialization logic)
         if (assessmentSection) {
             assessmentSection.style.display = 'block';
+        } else {
+            console.warn('Assessment section (id="self-assess") not found. Cannot show it.');
+        }
+
+        if (pricingSection) {
+            pricingSection.style.display = 'none'; // Explicitly hide pricing section
+        } else {
+            console.warn('Pricing section (id="pricing") not found. Cannot hide it.');
         }
     }
 });
