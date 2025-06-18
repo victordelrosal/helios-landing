@@ -1,0 +1,5 @@
+add localStorage to indicate if the user has submitted a valid email. This should be an On/Off indicator submittedEmail = "YES' or submittedEmail = "NO'. By default: submittedEmail = "NO'. Leave all else intact 
+
+---
+
+if submittedEmail = 'YES' then display this: 'Choose Your Package' section with pricing options and 💸 100% Money Back Unbeatable Guarantee. This specific content should ALWAYS be displayed on the page automatically (skip the assessment tool). only display the assessment tool when submittedEmail = 'NO'. Obviously rest of content for the whole page should ALWAYS be displayed regardless of submittedEmail status. Leave all else intact. 
