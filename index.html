@@ -1280,7 +1280,7 @@ section{
       </div>
       <div class="text-center mb-4 fade-in">
       <p class="lead" style="font-size: 2em;">
-        And even better, have your instructor beside you.
+        And even better, have the instructor with you.
       </p>
     </div>
   </div>
@@ -1479,20 +1479,20 @@ section{
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item fade-in">
-        <h3>€10k+</h3>
-        <p>Value unlocked in 60 days</p>
+        <h3>1500+</h3>
+        <p>Participants over 2+ years</p>
       </div>
       <div class="stat-item fade-in" style="animation-delay:0.2s">
-        <h3>20hrs</h3>
-        <p>Monthly time reclaimed</p>
+        <h3>2500+</h3>
+        <p>Projects created</p>
       </div>
       <div class="stat-item fade-in" style="animation-delay:0.4s">
-        <h3>100%</h3>
-        <p>Success rate</p>
+        <h3>4.5 stars</h3>
+        <p>Delivery rating</p>
       </div>
       <div class="stat-item fade-in" style="animation-delay:0.6s">
-        <h3>25</h3>
-        <p>Limited Seats Available</p>
+        <h3>&lt;25</h3>
+        <p>Seats Available</p>
       </div>
     </div>
   </div>
@@ -2010,23 +2010,26 @@ const statsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting && !entry.target.animated) {
       entry.target.animated = true;
       const value = entry.target.textContent;
-      if (value.includes('€')) {
-        animateValue(entry.target, 0, 10, 2000);
+      if (value.includes('1500')) {
+        animateValue(entry.target, 0, 1500, 2000);
         setTimeout(() => {
-          entry.target.textContent = '€10k+';
+          entry.target.textContent = '1500+';
         }, 2000);
-      } else if (value.includes('20')) {
-        animateValue(entry.target, 0, 20, 2000);
+      } else if (value.includes('2500')) {
+        animateValue(entry.target, 0, 2500, 2000);
         setTimeout(() => {
-          entry.target.textContent = '20hrs';
+          entry.target.textContent = '2500+';
         }, 2000);
-      } else if (value.includes('100')) {
-        animateValue(entry.target, 0, 100, 2000);
+      } else if (value.includes('4.5')) {
+        animateValue(entry.target, 0, 4.5, 2000);
         setTimeout(() => {
-          entry.target.textContent = '100%';
+          entry.target.textContent = '4.5 stars';
         }, 2000);
-      } else if (value.includes('25')) {
-        animateValue(entry.target, 0, 25, 2000);
+      } else if (value.includes('<25')) {
+        animateValue(entry.target, 25, 1, 2000, true);
+        setTimeout(() => {
+          entry.target.textContent = '<25';
+        }, 2000);
       }
     }
   });
