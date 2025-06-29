@@ -1622,7 +1622,15 @@ section{
           <li>✓ Booster Pack (6-month access)</li>
           <li>✓ PDF copy of <em>HUMANLIKE: the AI Transformation</em> book</li>
         </ul>
-        <a href="#apply" class="btn btn-secondary">Select Flagship</a>
+        <script async
+          src="https://js.stripe.com/v3/buy-button.js">
+        </script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1RfQZyEDRHdUKb4lvcViE4A4"
+          publishable-key="pk_live_51LSTkfEDRHdUKb4lzHy98nTH1gtJ2SHSGlrL19rwoW9uygLLKqfXO2Se1Aze4aHm90rSnIwwWbbtQcnu19jcMpCt00fYwSHIW9"
+        >
+        </stripe-buy-button>
       </div>
       
       <div class="pricing-card featured fade-in">
@@ -1636,7 +1644,15 @@ section{
           <li>✓ Booster Pack (1-yr access)</li>
           <li>✓ Physical copy of <em>HUMANLIKE: the AI Transformation</em> book signed by the author and posted to you</li>
         </ul>
-        <a href="#apply" class="btn btn-gold">Choose Premium</a>
+        <script async
+          src="https://js.stripe.com/v3/buy-button.js">
+        </script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1RfQeZEDRHdUKb4lbOFRFCyp"
+          publishable-key="pk_live_51LSTkfEDRHdUKb4lzHy98nTH1gtJ2SHSGlrL19rwoW9uygLLKqfXO2Se1Aze4aHm90rSnIwwWbbtQcnu19jcMpCt00fYwSHIW9"
+        >
+        </stripe-buy-button>
       </div>
       
       <div class="pricing-card slide-in-right" style="position:relative;overflow:hidden;">
@@ -1651,7 +1667,15 @@ section{
           <li>✓ Named HELIOS Founder status</li>
           <li><strong style="color:var(--gold-premium)">Limited Seats Available.</strong></li>
         </ul>
-        <a href="#apply" class="btn btn-secondary">Go VIP</a>
+        <script async
+          src="https://js.stripe.com/v3/buy-button.js">
+        </script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1RfQgMEDRHdUKb4lBroeHVJ7"
+          publishable-key="pk_live_51LSTkfEDRHdUKb4lzHy98nTH1gtJ2SHSGlrL19rwoW9uygLLKqfXO2Se1Aze4aHm90rSnIwwWbbtQcnu19jcMpCt00fYwSHIW9"
+        >
+        </stripe-buy-button>
       </div>
       
     </div>
@@ -1845,7 +1869,7 @@ section{
       <div>
         <h4 style="margin-bottom:1rem;color:var(--gold-premium)">🔆 HELIOS</h4>
         <p style="color:rgba(255,255,255,0.7);line-height:1.8">
-          The flagship generative AI masterclass for ambitious professionals ready to lead.
+          Go From AI Curious to AI Fluent in Five Weeks: A hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
         </p>
       </div>
       <div>
@@ -1861,7 +1885,7 @@ section{
         <h4 style="margin-bottom:1rem;color:var(--gold-premium)">Contact</h4>
         <p style="color:rgba(255,255,255,0.7);line-height:1.8">
           Questions? Reach out.<br>
-          hello@helios-ai.com
+          victor@fiveinnolabs.com
         </p>
       </div>
     </div>
@@ -2181,10 +2205,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let reasonText = reasons.join(" and ");
       
       resultMessage.innerHTML = `Based on your responses, HELIOS isn't the best fit because ${reasonText}. We appreciate your interest in AI transformation and would be happy to recommend other resources that might better match your current situation.`;
-      resultCTA.innerHTML = `
-        <p style="margin-bottom: 1.5rem; color: var(--grey-dark);">We've sent some alternative recommendations to ${email}</p>
-        <a href="#" class="btn btn-secondary" onclick="alert('Resource guide would be sent here'); return false;">Explore Alternatives</a>
-      `;
+      resultCTA.innerHTML = '';
     } else if (score >= 10) {
       // Perfect fit - show pricing section
       pricingSection.style.display = 'block';
@@ -2206,8 +2227,7 @@ document.addEventListener('DOMContentLoaded', function() {
       resultMessage.innerHTML = `You're at the perfect starting point for HELIOS. With our structured approach and expert guidance, you'll quickly bridge the gap between AI-curious and AI-capable.`;
       resultCTA.innerHTML = `
         <p style="margin-bottom: 1.5rem; font-weight: 600; color: var(--gold-rich);">Check ${email} for your readiness tips</p>
-        <a href="#pricing" class="btn btn-gold" style="margin-right: 1rem;">View Options</a>
-        <a href="#program" class="btn btn-secondary">Learn More</a>
+        <a href="#pricing" class="btn btn-gold">View Options</a>
       `;
     } else {
       // Moderate score but no exclusion criteria - good fit with more preparation
