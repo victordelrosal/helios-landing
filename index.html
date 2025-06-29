@@ -1593,7 +1593,7 @@ section{
         <p style="opacity: 0.9; margin-bottom: 2rem;">Enter your email to receive your personalized HELIOS readiness assessment.</p>
         <form id="email-form">
           <div style="position: relative; margin-bottom: 2rem;">
-            <input type="email" id="user-email" required placeholder="your@email.com" style="width: 100%; padding: 1.2rem 1.5rem; border-radius: 16px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); font-size: 1.1rem; backdrop-filter: blur(10px);" />
+            <input type="email" id="user-email" name="email_address" required placeholder="your@email.com" style="width: 100%; padding: 1.2rem 1.5rem; border-radius: 16px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); font-size: 1.1rem; backdrop-filter: blur(10px);" />
           </div>
           <button type="submit" class="btn btn-gold submit-btn" style="width: 100%; font-size: 1.1rem; padding: 1.2rem; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 100%); border: none; transform-style: preserve-3d; transition: all 0.3s ease;">
             <span style="position: relative; z-index: 2;">Submit</span>
@@ -2124,23 +2124,42 @@ document.addEventListener('DOMContentLoaded', function() {
     emailCollection.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   
-  // Handle email form submission
-  emailForm.addEventListener('submit', function(e) {
+  
+  // Handle email form submission with ConvertKit
+  emailForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    const userEmail = document.getElementById('user-email').value;
+    const email = document.getElementById('user-email').value.trim();
+    if (!email) return;
     
-    // Hide email collection, show results
-    emailCollection.style.display = 'none';
-    assessmentResults.style.display = 'block';
-    
-    // Display results based on score
-    displayResults(assessmentScore, userEmail);
-    
-    // Simulate email send
-    simulateEmailSend(userEmail, assessmentScore);
-    
-    assessmentResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    try {
+      await fetch(
+        'https://api.convertkit.com/v3/forms/8246688/subscribe',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            api_key: 'ul3O9qvt8n-X1R6Aniynmg',
+            email,
+            tags: ['HELIOS', 'Founding-Cohort'],
+            fields: { cohort: 'Aug-2025' }
+          })
+        }
+      );
+      
+      // Success → show results UI
+      emailCollection.style.display = 'none';
+      assessmentResults.style.display = 'block';
+      
+      // Display results based on score
+      displayResults(assessmentScore, email);
+      
+      assessmentResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+    } catch (err) {
+      console.error('ConvertKit error', err);
+      alert('Could not save your email. Try again?');
+    }
   });
   
   function displayResults(score, email) {
@@ -2222,106 +2241,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#program" class="btn btn-secondary">Learn More</a>
       `;
     }
-  }
-  
-  function simulateEmailSend(email, score) {
-    console.log('=== Simulating Email Send ===');
-    console.log('To:', email);
-    console.log('Subject: Your HELIOS Assessment Results');
-    console.log('Score:', score);
-    
-    let emailBody = `
-Dear Future AI Leader,
-
-Thank you for completing the HELIOS readiness assessment!
-
-Your Assessment Score: ${score}/12
-
-`;
-    
-    if (score >= 10) {
-      emailBody += `
-🚀 Congratulations! You're perfectly positioned for HELIOS.
-
-Based on your responses, you're ready to:
-- Transform from AI-curious to AI-capable in 5 weeks
-- Build real, working AI tools from day one
-- Save 20+ hours monthly through automation
-- Join an elite cohort of ambitious professionals
-
-Next Steps:
-1. Choose your transformation package (Flagship, Premium, or VIP)
-2. Complete your application before July 15, 2025
-3. Prepare for your AI transformation starting August 6
-
-Secure your seat: [Link to application]
-`;
-    } else if (score >= 7) {
-      emailBody += `
-✨ You're ready for transformation with HELIOS!
-
-Your assessment shows you have:
-- Strong interest in AI advancement
-- Readiness to learn with expert guidance
-- Commitment to practical application
-
-HELIOS is designed for professionals exactly like you. Our structured approach will help you:
-- Build confidence through hands-on projects
-- Master 5 essential AI tools
-- Create your own AI assistant
-- Network with like-minded professionals
-
-Ready to transform? View our packages: [Link to pricing]
-`;
-    } else {
-      emailBody += `
-🌱 Your AI journey is just beginning!
-
-While HELIOS is an intensive program for those ready to build immediately, we want to support your AI journey.
-
-Here are some resources to help you prepare:
-- Free AI Fundamentals Guide: [Link]
-- Introduction to Prompt Engineering: [Link]
-- AI Tools Comparison Chart: [Link]
-
-When you feel ready for intensive, hands-on AI mastery, HELIOS will be here for you.
-
-Stay curious!
-`;
-    }
-    
-    emailBody += `
-
-Best regards,
-The HELIOS Team
-
-P.S. Questions? Reply to this email or join our info session on July 20th.
-`;
-    
-    console.log('Body:', emailBody);
-    console.log('=== Email Send Complete ===');
-    
-    // Show a subtle notification
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, var(--blue-electric) 0%, var(--blue-accent) 100%);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      box-shadow: var(--shadow-deep);
-      z-index: 9999;
-      animation: slideInRight 0.5s ease-out;
-    `;
-    notification.textContent = '✉️ Results sent to ' + email;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-      notification.style.animation = 'slideOutRight 0.5s ease-out';
-      setTimeout(() => notification.remove(), 500);
-    }, 3000);
   }
 });
 </script>
