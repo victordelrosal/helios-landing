@@ -269,6 +269,16 @@ h3{
 .btn-gold:hover{
   transform:translateY(-2px);
   box-shadow:0 8px 30px var(--gold-glow);
+  background: linear-gradient(
+    90deg, 
+    var(--gold-premium) 0%, 
+    var(--gold-light) 25%, 
+    #fefdf5 50%, 
+    var(--gold-light) 75%, 
+    var(--gold-premium) 100%
+  );
+  background-size: 200% 100%;
+  animation: goldShimmerInPlace 3s ease-in-out infinite;
 }
 
 /* Premium Hero Section */
