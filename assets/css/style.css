@@ -204,6 +204,19 @@
     }
 }
 
+@media (max-width: 968px) {
+  .hero::after {
+    /* keep the "by ⬟ fiveinnolabs" text */
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    background: none !important;   /* kill the image that makes the stripe */
+    opacity: 1;                    /* ensure the text is visible */
+    pointer-events: none;
+  }
+}
+
 @media (max-width: 768px) {
     .booster-pack-section {
         padding: 80px 0;
