@@ -850,10 +850,14 @@ section{
     position: absolute;
     top: 2rem;
     left: 50%;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
     transform: translateX(-50%);
     font-size: 2rem;
     font-weight: 900;
-    background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -861,6 +865,7 @@ section{
     z-index: 10;
     line-height: 1;
     pointer-events: none;
+    opacity: 1;
   }
   .hero::after{
     content: 'by ⬟ fiveinnolabs';
