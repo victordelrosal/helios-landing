@@ -138,6 +138,27 @@ h3{
   transform:scale(1.05);
 }
 
+/* Desktop-only hover effect for HELIOS text */
+@media (min-width: 969px) {
+  .logo:hover div:first-child {
+    background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logoGoldPulse 2s ease-in-out infinite;
+    text-shadow: 0 2px 15px var(--gold-glow);
+  }
+  
+  @keyframes logoGoldPulse {
+    0%, 100% {
+      text-shadow: 0 2px 15px var(--gold-glow);
+    }
+    50% {
+      text-shadow: 0 2px 25px var(--gold-glow), 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+  }
+}
+
 .nav-links{
   display:flex;
   gap:3rem;
@@ -1711,7 +1732,7 @@ section{
             <li>✓ 1:1 Strategy Session (20 min)</li>
             <li>✓ Offline Support</li>
             <li>✓ Booster Pack (1-yr access)</li>
-            <li>✓ Physical copy of <em>HUMANLIKE: the AI Transformation</em> book signed by the author and posted to you</li>
+            <li>✓ Physical copy of <em>HUMANLIKE: the AI Transformation</em> book</li>
           </ul>
         </div>
         <div>
@@ -1737,7 +1758,8 @@ section{
             <li>✓ Two 1:1 Strategy Sessions (30 min)</li>
             <li>✓ Priority Access & Support</li>
             <li>✓ Booster Pack (lifetime access)</li>
-            <li>✓ Named HELIOS Founder status</li>
+            <li>✓ Physical copy of <em>HUMANLIKE: the AI Transformation</em> book <strong>signed by the author</strong> and posted to you</li>
+            <li>✓ Lifetime Membership in Founder's circle (early access to all new offerings-limited offering)</li>
             <li><strong style="color:var(--gold-premium)">Only Two Seats Available</strong></li>
           </ul>
         </div>
