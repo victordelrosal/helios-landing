@@ -141,20 +141,30 @@ h3{
 /* Desktop-only hover effect for HELIOS text */
 @media (min-width: 969px) {
   .logo:hover div:first-child {
-    background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
+    background: linear-gradient(
+      90deg, 
+      var(--gold-premium) 0%, 
+      var(--gold-light) 25%, 
+      #fefdf5 50%, 
+      var(--gold-light) 75%, 
+      var(--gold-premium) 100%
+    );
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: logoGoldPulse 2s ease-in-out infinite;
-    text-shadow: 0 2px 15px var(--gold-glow);
+    animation: goldShimmerInPlace 3s ease-in-out infinite;
   }
   
-  @keyframes logoGoldPulse {
-    0%, 100% {
-      text-shadow: 0 2px 15px var(--gold-glow);
+  @keyframes goldShimmerInPlace {
+    0% {
+      background-position: 0% 50%;
     }
     50% {
-      text-shadow: 0 2px 25px var(--gold-glow), 0 0 20px rgba(255, 215, 0, 0.5);
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 }
