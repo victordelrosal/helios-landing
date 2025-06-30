@@ -1740,23 +1740,23 @@ section{
     <div class="feature-grid">
       <div class="testimonial fade-in">
         <p class="testimonial-quote">
-          "Our team went from AI-curious to AI-powered in five weeks. The ROI was immediate and continues to compound monthly."
+          "The team’s officially AI-empowered. [We covered] everything from how AI can automate the boring stuff, to how generative models can help us brainstorm, create, and help bring procurement into a new era."
         </p>
         <div class="testimonial-author">—Company in High tech & Telecom Supply Chain with €150m turnover</div>
       </div>
       
       <div class="testimonial fade-in" style="animation-delay:0.2s">
         <p class="testimonial-quote">
-          "I'm not technical at all. I built a working AI assistant in Week 1 and actually enjoyed the process. Life-changing."
+          "Victor was part of an expert panel of speakers for a Digital Information session for SMEs that was hosted by the Local Enterprise Office Clare. Victor is incredibly knowledgeable in all things digital and has a desire to continue to learn and help people and businesses pursue their digital transformation."
         </p>
-        <div class="testimonial-author">—Maria S., Educator & Founder</div>
+        <div class="testimonial-author">—Michelle Guthrie, Senior Enterprise Development Officer, Local Enterprise Office, County Clare, Ireland</div>
       </div>
       
       <div class="testimonial fade-in" style="animation-delay:0.4s">
         <p class="testimonial-quote">
-          "Victor transformed our senior leadership. We now prototype ideas in days instead of months."
+          "Victor [gave] the keynote at our GenAI hackathon... delivered to the whole company. It was a big hit and opened people’s eyes at all levels to what can be achieved with GenAI."
         </p>
-        <div class="testimonial-author">—Mark Greville, VP Engineering</div>
+        <div class="testimonial-author">—Mark Greville, VP Engineering, Workhuman</div>
       </div>
     </div>
   </div>
@@ -1880,7 +1880,24 @@ section{
             </div>
           </div>
           
-          <button type="submit" class="btn btn-primary analyse-btn" style="width: 100%; font-size: 1.1rem; padding: 1.2rem; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--blue-royal) 0%, var(--blue-accent) 100%); border: none; transform-style: preserve-3d; transition: all 0.3s ease;">
+          <!-- ChatGPT Plus Requirement -->
+          <div class="assess-question" style="margin-bottom: 3rem;">
+            <div style="background: #f8f9fa; border-left: 4px solid var(--blue-accent); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+              <h4 style="color: var(--blue-accent); font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600;">📋 Course Requirement</h4>
+              <p style="color: var(--grey-dark); margin-bottom: 0; line-height: 1.6;">
+                The course requires the use of <strong>ChatGPT Plus (€23/mo - cancel anytime)</strong>
+              </p>
+            </div>
+            
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <input type="checkbox" id="chatgpt-agreement" name="chatgpt-agreement" required style="margin-top: 0.2rem; transform: scale(1.2);">
+              <label for="chatgpt-agreement" style="color: var(--black-soft); font-size: 1.1rem; font-weight: 500; cursor: pointer; line-height: 1.5;">
+                I agree to the ChatGPT Plus requirement and understand this is necessary for course participation
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary analyse-btn" style="width: 100%; font-size: 1.1rem; padding: 1.2rem; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--blue-royal) 0%, var(--blue-accent) 100%); border: none; transform-style: preserve-3d; transition: all 0.3s ease; opacity: 0.5; cursor: not-allowed;" disabled>
             <span style="position: relative; z-index: 2;">Analyse My Readiness</span>
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%); transform: translateY(50%) scale(2); opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;" class="btn-highlight"></div>
           </button>
@@ -2273,9 +2290,44 @@ document.addEventListener('DOMContentLoaded', function() {
     slider.style.background = `linear-gradient(90deg, ${color} 0%, ${color} ${percent}%, var(--grey-medium) ${percent}%, var(--grey-medium) 100%)`;
   }
   
+  // Handle ChatGPT Plus agreement checkbox
+  const chatgptCheckbox = document.getElementById('chatgpt-agreement');
+  const analyseBtn = document.querySelector('.analyse-btn');
+  
+  if (chatgptCheckbox && analyseBtn) {
+    // Initial state - button is disabled
+    updateSubmitButton();
+    
+    // Listen for checkbox changes
+    chatgptCheckbox.addEventListener('change', updateSubmitButton);
+    
+    function updateSubmitButton() {
+      if (chatgptCheckbox.checked) {
+        // Enable button
+        analyseBtn.disabled = false;
+        analyseBtn.style.opacity = '1';
+        analyseBtn.style.cursor = 'pointer';
+        analyseBtn.style.background = 'linear-gradient(135deg, var(--blue-royal) 0%, var(--blue-accent) 100%)';
+      } else {
+        // Disable button
+        analyseBtn.disabled = true;
+        analyseBtn.style.opacity = '0.5';
+        analyseBtn.style.cursor = 'not-allowed';
+        analyseBtn.style.background = 'linear-gradient(135deg, #ccc 0%, #999 100%)';
+      }
+    }
+  }
+  
   // Handle assessment form submission
   assessmentForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    // Check if ChatGPT Plus agreement is checked
+    const chatgptAgreement = document.getElementById('chatgpt-agreement');
+    if (!chatgptAgreement || !chatgptAgreement.checked) {
+      alert('Please agree to the ChatGPT Plus requirement to continue.');
+      return;
+    }
     
     // Calculate score
     const q1 = parseInt(document.getElementById('q1').value);
