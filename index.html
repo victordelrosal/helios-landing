@@ -1424,7 +1424,7 @@ section{
         <a href="#self-assess" class="btn btn-gold">Claim Your Seat</a>
       </div>
       <p style="text-align: center; margin-top: 1rem; color: var(--gold-premium); font-weight: 600; font-size: 0.95rem; opacity: 0; animation: fadeInDelayed 0.6s ease-in 0.8s forwards;">
-        Registration deadline: 23 July
+        Registration deadline: 23 July <span id="countdown-hero" style="color: var(--gold-premium); font-weight: 700;"></span>
       </p>
     </div>
   </div>
@@ -1736,7 +1736,7 @@ section{
   <div class="container">
     <h2 class="text-center mb-4 fade-in">Choose Your Package</h2>
     <p style="text-align: center; color: var(--gold-premium); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">
-      Register by 23 July
+      Register by 23 July <span id="countdown-pricing" style="color: var(--gold-premium); font-weight: 700;"></span>
     </p>
     <p class="text-center fade-in" style="font-size: 1.1rem; color: var(--blue-accent); font-weight: 500; margin-bottom: 3rem;">Session dates: Wednesdays 6, 13, 20, 27 August & 3 September 7:30 to 9:30 PM (via Zoom)</p>
     
@@ -2340,6 +2340,42 @@ const statsObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-item h3').forEach(stat => {
   statsObserver.observe(stat);
 });
+
+// Registration Countdown Function
+function updateRegistrationCountdown() {
+  const deadlineDate = new Date('2025-07-23T23:59:59');
+  const currentDate = new Date();
+  const timeDifference = deadlineDate - currentDate;
+  
+  if (timeDifference > 0) {
+    const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    const countdownText = `⚠️ ${daysLeft} day${daysLeft === 1 ? '' : 's'} left`;
+    
+    // Update both countdown elements
+    const countdownHero = document.getElementById('countdown-hero');
+    const countdownPricing = document.getElementById('countdown-pricing');
+    
+    if (countdownHero) countdownHero.textContent = countdownText;
+    if (countdownPricing) countdownPricing.textContent = countdownText;
+  } else {
+    // Deadline has passed
+    const expiredText = '(Registration closed)';
+    const countdownHero = document.getElementById('countdown-hero');
+    const countdownPricing = document.getElementById('countdown-pricing');
+    
+    if (countdownHero) {
+      countdownHero.textContent = expiredText;
+      countdownHero.style.color = 'var(--gold-premium)';
+    }
+    if (countdownPricing) {
+      countdownPricing.textContent = expiredText;
+      countdownPricing.style.color = 'var(--gold-premium)';
+    }
+  }
+}
+
+// Initialize countdown on page load
+updateRegistrationCountdown();
 
 // Self Assessment Logic
 document.addEventListener('DOMContentLoaded', function() {
