@@ -382,6 +382,11 @@ h3{
   to{opacity:1;transform:translateY(0)}
 }
 
+@keyframes fadeInDelayed{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 .hero .highlight{
   background: linear-gradient(135deg, var(--gold-premium) 0%, var(--gold-rich) 50%, var(--gold-light) 100%);
   -webkit-background-clip: text;
@@ -1404,6 +1409,9 @@ section{
       <div class="hero-cta" style="display: flex; justify-content: center;">
         <a href="#self-assess" class="btn btn-gold">Claim Your Seat</a>
       </div>
+      <p style="text-align: center; margin-top: 1rem; color: var(--gold-premium); font-weight: 600; font-size: 0.95rem; opacity: 0; animation: fadeInDelayed 0.6s ease-in 0.8s forwards;">
+        Registration deadline: 23 July
+      </p>
     </div>
   </div>
 </section>
@@ -1703,7 +1711,7 @@ section{
       </div>
       <div class="stat-item fade-in" style="animation-delay:0.6s">
         <h3>1</h3>
-        <p>Perfect Opportunity to learn GenAI</p>
+        <p>Perfect opportunity to learn GenAI</p>
       </div>
     </div>
   </div>
@@ -1713,6 +1721,9 @@ section{
 <section class="section section-light" id="pricing">
   <div class="container">
     <h2 class="text-center mb-4 fade-in">Choose Your Package</h2>
+    <p style="text-align: center; color: var(--gold-premium); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">
+      Register by 23 July
+    </p>
     <p class="text-center fade-in" style="font-size: 1.1rem; color: var(--blue-accent); font-weight: 500; margin-bottom: 3rem;">Session dates: Wednesdays 6, 13, 20, 27 August & 3 September 7:30 to 9:30 PM (via Zoom)</p>
     
     <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-top:3rem;">
@@ -2044,13 +2055,28 @@ section{
       <!-- FAQ Item 1 -->
       <div class="faq-item" style="margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.9); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 6px 25px rgba(0,0,0,0.03); transition: all 0.4s ease; backdrop-filter: blur(10px);">
         <div class="faq-question" style="padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+          <h3 style="color: #444444; font-size: 1.3rem; margin: 0; font-weight: 500; letter-spacing: 0.02em; transition: all 0.3s ease;">What are the session dates and times?</h3>
+          <div class="faq-icon" style="color: var(--blue-accent); font-size: 1.5rem; font-weight: 300; transition: transform 0.3s ease, color 0.3s ease;">+</div>
+        </div>
+        <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease; padding: 0 1.5rem; opacity: 0; transform: translateY(-10px);">
+          <div style="padding-bottom: 1.5rem;">
+            <p style="color: #555555; line-height: 1.8; font-size: 1.05rem; font-weight: 400;">
+              The HELIOS masterclass runs for 5 sessions on <strong>Wednesdays: 6, 13, 20, 27 August & 3 September from 7:30 to 9:30 PM</strong>. All sessions are conducted via <strong>Zoom</strong> with interactive hands-on activities and live Q&A.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="faq-item" style="margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.9); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 6px 25px rgba(0,0,0,0.03); transition: all 0.4s ease; backdrop-filter: blur(10px);">
+        <div class="faq-question" style="padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
           <h3 style="color: #444444; font-size: 1.3rem; margin: 0; font-weight: 500; letter-spacing: 0.02em; transition: all 0.3s ease;">Do I need technical experience to join HELIOS?</h3>
           <div class="faq-icon" style="color: var(--blue-accent); font-size: 1.5rem; font-weight: 300; transition: transform 0.3s ease, color 0.3s ease;">+</div>
         </div>
         <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease; padding: 0 1.5rem; opacity: 0; transform: translateY(-10px);">
           <div style="padding-bottom: 1.5rem;">
             <p style="color: #555555; line-height: 1.8; font-size: 1.05rem; font-weight: 400;">
-              Not at all. HELIOS is designed for people with little to no coding experience. If you can use Excel or PowerPoint, you're ready for HELIOS. The program is about building practical skills through hands-on projects, not complex theory.
+              To get the most out of HELIOS, participants must have satisfactory/average computer and online skills. However, no coding experience is required; the course is designed for non-technical users.
             </p>
           </div>
         </div>
@@ -2110,22 +2136,7 @@ section{
         <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease; padding: 0 1.5rem; opacity: 0; transform: translateY(-10px);">
           <div style="padding-bottom: 1.5rem;">
             <p style="color: #555555; line-height: 1.8; font-size: 1.05rem; font-weight: 400;">
-              Absolutely. Many participants get their company to cover the investment as professional development. We can provide the necessary documentation and invoices for your expense report or L&D budget. For multiple seats from the same organization, contact us directly for corporate pricing.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- FAQ Item 6 -->
-      <div class="faq-item" style="margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.9); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 6px 25px rgba(0,0,0,0.03); transition: all 0.4s ease; backdrop-filter: blur(10px);">
-        <div class="faq-question" style="padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
-          <h3 style="color: #444444; font-size: 1.3rem; margin: 0; font-weight: 500; letter-spacing: 0.02em; transition: all 0.3s ease;">What are the session dates and times?</h3>
-          <div class="faq-icon" style="color: var(--blue-accent); font-size: 1.5rem; font-weight: 300; transition: transform 0.3s ease, color 0.3s ease;">+</div>
-        </div>
-        <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease; padding: 0 1.5rem; opacity: 0; transform: translateY(-10px);">
-          <div style="padding-bottom: 1.5rem;">
-            <p style="color: #555555; line-height: 1.8; font-size: 1.05rem; font-weight: 400;">
-              The HELIOS masterclass runs for 5 sessions on <strong>Wednesdays: 6, 13, 20, 27 August & 3 September from 7:30 to 9:30 PM</strong>. All sessions are conducted via <strong>Zoom</strong> with interactive hands-on activities and live Q&A.
+              Absolutely. Many participants get their company to cover the investment as professional development. We can provide the necessary documentation and invoices for your expense report or L&D budget. For multiple seats from the same organisation, contact us directly for corporate pricing.
             </p>
           </div>
         </div>
