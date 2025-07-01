@@ -132,10 +132,16 @@ h3{
   background-clip:text;
   -webkit-text-fill-color:transparent;
   transition:transform 0.3s ease;
+  text-shadow: 
+    2px 2px 0px rgba(0, 102, 255, 0.3),
+    4px 4px 0px rgba(0, 102, 255, 0.2),
+    6px 6px 0px rgba(0, 102, 255, 0.1),
+    8px 8px 15px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
 }
 
 .logo:hover{
-  transform:scale(1.05);
+  transform:scale(1.05) rotateX(5deg) rotateY(-5deg);
 }
 
 /* Desktop-only hover effect for HELIOS text */
@@ -153,7 +159,15 @@ h3{
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px white;
     animation: goldShimmerInPlace 3s ease-in-out infinite;
+    text-shadow: 
+      2px 2px 0px rgba(255, 215, 0, 0.4),
+      4px 4px 0px rgba(255, 215, 0, 0.3),
+      6px 6px 0px rgba(255, 215, 0, 0.2),
+      8px 8px 0px rgba(255, 215, 0, 0.1),
+      10px 10px 20px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
   }
   
   @keyframes goldShimmerInPlace {
@@ -1404,7 +1418,7 @@ section{
       <div class="hero-badge">Founding Cohort • August 2025</div>
       <h1 class="serif">Go From <span class="highlight">AI Curious</span> to <br> <span class="highlight">AI Fluent</span> in Five Weeks</h1>
       <p class="hero-subtitle">
-        A hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
+        🔆 HELIOS: the hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
       </p>
       <div class="hero-cta" style="display: flex; justify-content: center;">
         <a href="#self-assess" class="btn btn-gold">Claim Your Seat</a>
@@ -2152,7 +2166,7 @@ section{
       <div>
         <h4 style="margin-bottom:1rem;color:var(--gold-premium)">🔆 HELIOS</h4>
         <p style="color:rgba(255,255,255,0.7);line-height:1.8">
-          Go From AI Curious to AI Fluent in Five Weeks: A hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
+          Go From AI Curious to AI Fluent in Five Weeks: The HELIOS Masterclass. A hands-on 5-week intensive generative AI masterclass for non-technical professionals and decision-makers.
         </p>
       </div>
       <div>
