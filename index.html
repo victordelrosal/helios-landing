@@ -599,123 +599,161 @@ section{
 /* Removed the Most Popular banner */
 
 .pricing-card:hover{
-  transform:translateY(-10px);
+  transform:scale(1.05) translateY(-10px);
+  box-shadow:var(--shadow-deep);
+}
+
+/* Ensure Flagship card (without featured/vip classes) gets hover effect */
+.pricing-card:not(.featured):not(.vip):hover{
+  transform:scale(1.05) translateY(-10px);
   box-shadow:var(--shadow-deep);
 }
 
 .pricing-card.featured:hover{
-  transform:scale(1.08) translateY(-10px);
+  transform:scale(1.05) translateY(-10px);
 }
 
-/* VIP Card Realistic Gold Bar Effect */
+/* VIP Card - Refined Elegant Gold Design */
 .pricing-card.vip:hover{
-  transform:scale(1.02) translateY(-8px);
+  transform:scale(1.05) translateY(-10px);
+  
+  /* Refined champagne to rose gold gradient */
+  background: linear-gradient(135deg, 
+    #FFFEF7 0%,    /* Soft ivory highlight */
+    #FAF4E6 12%,   /* Warm cream */
+    #F5E6D3 25%,   /* Champagne silk */
+    #EDD5B8 40%,   /* Soft gold */
+    #E5C8A0 55%,   /* Rich champagne */
+    #D4AF37 70%,   /* Classic gold */
+    #C19A6B 85%,   /* Rose gold accent */
+    #B8956A 100%   /* Deep elegant gold */
+  );
+  
+  /* Sophisticated layered shadows */
   box-shadow:
-    /* Main gold bar shadow */
-    0 20px 40px rgba(184, 134, 11, 0.3),
-    0 8px 20px rgba(218, 165, 32, 0.2),
-    /* Top highlight edge */
-    inset 0 2px 0 rgba(255, 255, 255, 0.6),
-    /* Bottom shadow edge */
-    inset 0 -1px 0 rgba(139, 115, 85, 0.4);
+    /* Subtle outer glow */
+    0 0 40px rgba(212, 175, 55, 0.12),
+    /* Elegant elevation */
+    0 20px 40px rgba(212, 175, 55, 0.08),
+    /* Depth shadow */
+    0 10px 25px rgba(0, 0, 0, 0.06),
+    /* Refined inner highlights */
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(184, 149, 106, 0.2);
   
-  background:
-    /* Realistic gold bar gradient */
-    linear-gradient(135deg, 
-      #FFD700 0%,   /* Bright gold top */
-      #FFC125 20%,  /* Rich gold */
-      #DAA520 50%,  /* Deep gold center */
-      #B8860B 80%,  /* Dark gold bottom */
-      #CD853F 100%  /* Warm gold edge */
-    );
-  
-  border: 2px solid #B8860B;
+  border: 1px solid rgba(212, 175, 55, 0.3);
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease-out;
-  filter: saturate(1.1) contrast(1.05);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Sophisticated silk texture overlay */
 .pricing-card.vip:hover::before{
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 40%;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.3) 0%, 
-    rgba(255, 255, 255, 0.1) 50%, 
-    transparent 100%
-  );
-  border-radius: 24px 24px 0 0;
+  bottom: 0;
+  background: 
+    /* Subtle radial highlights */
+    radial-gradient(ellipse at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 75%, rgba(255, 248, 220, 0.1) 0%, transparent 50%),
+    /* Refined directional highlight */
+    linear-gradient(125deg, rgba(255, 255, 255, 0.08) 0%, transparent 45%);
+  border-radius: 24px;
   z-index: 1;
+  animation: refinedGlow 6s ease-in-out infinite;
 }
 
+/* Elegant light sweep */
 .pricing-card.vip:hover::after{
   content: '';
   position: absolute;
-  top: -50%;
-  left: -20%;
-  width: 30%;
-  height: 200%;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(255, 255, 255, 0.4) 50%, 
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 80%,
     transparent 100%
   );
-  animation: goldBarShine 3s ease-in-out infinite;
+  animation: refinedSweep 4s ease-in-out infinite;
   z-index: 2;
+  border-radius: 24px;
 }
 
+/* Refined typography with elegant contrast */
 .pricing-card.vip:hover h3{
-  color: #8B4513 !important;
+  color: #6B4423 !important;
   position: relative;
   z-index: 3;
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(139, 115, 85, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
 }
 
 .pricing-card.vip:hover p{
-  color: #654321 !important;
+  color: #8B6B47 !important;
   position: relative;
   z-index: 3;
-  text-shadow: 0 1px 2px rgba(139, 115, 85, 0.2);
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .pricing-card.vip:hover li{
-  color: #5D4037 !important;
+  color: #6B4423 !important;
   position: relative;
   z-index: 3;
-  text-shadow: 0 1px 1px rgba(139, 115, 85, 0.2);
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.25);
 }
 
 .pricing-card.vip:hover strong{
-  color: white !important;
+  color: #4A2C17 !important;
   position: relative;
   z-index: 3;
-  font-weight: 800;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
 }
 
 .pricing-card.vip:hover .price{
-  color: white !important;
-  -webkit-text-fill-color: white !important;
+  color: #4A2C17 !important;
+  -webkit-text-fill-color: #4A2C17 !important;
   background: none !important;
   position: relative;
   z-index: 3;
-  font-weight: 900;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.4);
 }
 
-@keyframes goldBarShine {
+/* Refined animations */
+@keyframes refinedGlow {
   0%, 100% { 
-    transform: translateX(-100%); 
-    opacity: 0; 
+    opacity: 0.7; 
   }
   50% { 
-    transform: translateX(400%); 
+    opacity: 1; 
+  }
+}
+
+@keyframes refinedSweep {
+  0% { 
+    left: -50%; 
+    opacity: 0; 
+  }
+  25% { 
     opacity: 0.8; 
+  }
+  75% { 
+    opacity: 0.8; 
+  }
+  100% { 
+    left: 100%; 
+    opacity: 0; 
   }
 }
 
@@ -1806,7 +1844,6 @@ section{
             <li>✓ Booster Pack (lifetime access)</li>
             <li>✓ Physical copy of <em>HUMANLIKE: the AI Transformation</em> book signed by the author and posted to you</li>
             <li>✓ Lifetime Founder's Circle membership (special invitations, first access to future offerings, etc.)</li>
-            <li><strong style="color:var(--gold-premium)">Only Two Seats Available</strong></li>
           </ul>
         </div>
         <div>
