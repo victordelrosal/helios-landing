@@ -1446,7 +1446,8 @@ section{
   .training-logos-track {
     display: flex;
     gap: 3rem;
-    animation: scrollLogos 5s linear infinite;
+    animation: scrollLogos 20s linear infinite;
+    width: max-content;
   }
 
   .training-logos-track img {
@@ -1454,11 +1455,12 @@ section{
     width: auto;
     filter: grayscale(100%);
     opacity: 0.8;
+    flex-shrink: 0;
   }
 
   @keyframes scrollLogos {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1.5rem)); }
   }
 
 /* Unbeatable Guarantee section would follow here */
@@ -1755,7 +1757,7 @@ section{
           </p>
           
           <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--grey-dark);">
-            Previously he was Head of Business Analysis for High Tech & Telecom at the TCS Supply Chain Center of Excellence (Dublin) and Director of Strategy & Business Development, CloudStrong, cloud services provider.
+            Previously he was Head of Business Analysis for High Tech & Telecom at the TCS Supply Chain Center of Excellence (Dublin) and Director of Strategy & Business Development, CloudStrong, cloud services provider. He has presented at international conferences including South By SouthWest (SXSW), Austin, TX, USA, We Are Developers Conference, Berlin, Germany, etc.
           </p>
           
           <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--grey-dark);">
@@ -1774,6 +1776,7 @@ section{
                 <img src="img/company06.png" alt="Company 6">
                 <img src="img/company07.png" alt="Company 7">
                 <img src="img/company08.png" alt="Company 8">
+                <img src="img/company09.png" alt="Company 9">
                 <img src="img/company01.png" alt="" aria-hidden="true">
                 <img src="img/company02.png" alt="" aria-hidden="true">
                 <img src="img/company03.png" alt="" aria-hidden="true">
@@ -1782,6 +1785,7 @@ section{
                 <img src="img/company06.png" alt="" aria-hidden="true">
                 <img src="img/company07.png" alt="" aria-hidden="true">
                 <img src="img/company08.png" alt="" aria-hidden="true">
+                <img src="img/company09.png" alt="" aria-hidden="true">
               </div>
             </div>
           </div>
