@@ -664,6 +664,7 @@ section{
   border-radius: 24px;
   z-index: 1;
   animation: refinedGlow 6s ease-in-out infinite;
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 /* Elegant light sweep */
@@ -682,8 +683,9 @@ section{
     transparent 100%
   );
   animation: refinedSweep 4s ease-in-out infinite;
-  z-index: 2;
+  z-index: 1; /* Reduced from 2 to 1 */
   border-radius: 24px;
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 /* Refined typography with elegant contrast */
@@ -755,6 +757,21 @@ section{
     left: 100%; 
     opacity: 0; 
   }
+}
+
+/* Ensure Stripe buttons remain clickable and visible above all hover effects */
+stripe-buy-button {
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  display: block !important;
+}
+
+/* Specific styling for VIP card Stripe button */
+.pricing-card.vip stripe-buy-button {
+  position: relative !important;
+  z-index: 15 !important;
+  pointer-events: auto !important;
 }
 
 .price{
