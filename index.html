@@ -1453,12 +1453,26 @@ section{
     width: max-content;
   }
 
+  .training-logos-track:hover {
+    animation-play-state: paused;
+  }
+
   .training-logos-track img {
     height: 150px;
     width: auto;
     filter: grayscale(100%);
     opacity: 0.8;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .training-logos-track img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.25);
+    z-index: 10;
+    position: relative;
   }
 
   @keyframes scrollLogos {
